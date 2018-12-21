@@ -10,14 +10,20 @@
         <content type="html"><![CDATA[<p>忽略警告<br>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’  </p><p>运行<br>import tensorflow as tf<br>hello = tf.constant(‘Hello, TensorFlow!’)<br>sess = tf.Session()<br>print(sess.run(hello))<br>print(“hello world!!”)<br>注意：：：<br>global_variables_initializer()替换</p><p>import tensorflow as tf<br>import numpy as np</p><p>#import keras    装完keras后，去掉#尝试运行，用于检验安装<br>x=tf.placeholder(“float”)<br>y=tf.placeholder(“float”)<br>w=tf.Variable([1.0,2.0],name=’w’)<br>y_pred=tf.multiply(x,w[0])+w[1]<br>error=tf.square(y-y_pred)</p><p>train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)<br>model=tf.initialize_all_variables()</p><p>with tf.Session() as session:<br>    session.run(model)<br>    for i in range(1000):<br>        x_value=np.random.rand()<br>        y_value=x_value*2+6<br>        session.run([train_op],feed_dict={x:x_value,y:y_value})</p><pre><code>w_value=session.run(w)# get wprint (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> tensorflow </category>
+          
+      </categories>
+      
       
         <tags>
-            
-            <tag> python </tag>
             
             <tag> tensorflow </tag>
             
             <tag> CRF </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -31,12 +37,16 @@
         <content type="html"><![CDATA[<p>#1.忽略警告<br>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’  </p><p>#2.运行<br>import tensorflow as tf<br>hello = tf.constant(‘Hello, TensorFlow!’)<br>sess = tf.Session()<br>print(sess.run(hello))<br>print(“hello world!!”)<br>注意：：：<br>global_variables_initializer()替换</p><p>#3.测试<br>import tensorflow as tf<br>import numpy as np</p><p>#import keras    装完keras后，去掉#尝试运行，用于检验安装<br>x=tf.placeholder(“float”)<br>y=tf.placeholder(“float”)<br>w=tf.Variable([1.0,2.0],name=’w’)<br>y_pred=tf.multiply(x,w[0])+w[1]<br>error=tf.square(y-y_pred)</p><p>#4.训练<br>train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)<br>model=tf.initialize_all_variables()</p><p>with tf.Session() as session:<br>    session.run(model)<br>    for i in range(1000):<br>        x_value=np.random.rand()<br>        y_value=x_value*2+6<br>        session.run([train_op],feed_dict={x:x_value,y:y_value})</p><pre><code>w_value=session.run(w)# get wprint (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
       
         <tags>
             
             <tag> java </tag>
-            
-            <tag> python </tag>
             
         </tags>
       
