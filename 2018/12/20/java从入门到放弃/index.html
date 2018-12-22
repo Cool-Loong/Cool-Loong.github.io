@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1.忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; #2.运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(he">
+<meta name="description" content="忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; 运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(hello))">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tensorflow">
 <meta property="og:url" content="https://Cool-Loong.github.io/2018/12/20/java从入门到放弃/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="1.忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; #2.运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(he">
+<meta property="og:description" content="忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; 运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(hello))">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T08:37:25.955Z">
+<meta property="og:updated_time" content="2018-12-22T11:44:40.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow">
-<meta name="twitter:description" content="1.忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; #2.运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(he">
+<meta name="twitter:description" content="忽略警告12import os  os.environ[&amp;apos;TF_CPP_MIN_LOG_LEVEL&amp;apos;]=&amp;apos;2&amp;apos; 运行1234567import tensorflow as tfhello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)sess = tf.Session()print(sess.run(hello))">
 
 
 
@@ -394,7 +394,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-22T16:37:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-22T19:44:40+08:00">
                 2018-12-22
               </time>
             
@@ -471,9 +471,10 @@
       
 
       
-        <h1 id="1-忽略警告"><a href="#1-忽略警告" class="headerlink" title="1.忽略警告"></a>1.忽略警告</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os  </span><br><span class="line">os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;]=&apos;2&apos;</span><br></pre></td></tr></table></figure>
-<h1 id="2-运行"><a href="#2-运行" class="headerlink" title="#2.运行"></a>#2.运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">hello = tf.constant(&apos;Hello, TensorFlow!&apos;)</span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(hello))</span><br><span class="line">print(&quot;hello world!!&quot;)</span><br><span class="line">注意：：：</span><br><span class="line">global_variables_initializer()替换</span><br></pre></td></tr></table></figure>
-<h1 id="3-测试"><a href="#3-测试" class="headerlink" title="#3.测试"></a>#3.测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line">#import keras    装完keras后，去掉#尝试运行，用于检验安装</span><br><span class="line">x=tf.placeholder(&quot;float&quot;)</span><br><span class="line">y=tf.placeholder(&quot;float&quot;)</span><br><span class="line">w=tf.Variable([1.0,2.0],name=&apos;w&apos;)</span><br><span class="line">y_pred=tf.multiply(x,w[0])+w[1]</span><br><span class="line">error=tf.square(y-y_pred)</span><br><span class="line">#4.训练</span><br><span class="line">train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)</span><br><span class="line">model=tf.initialize_all_variables()</span><br><span class="line"> </span><br><span class="line">with tf.Session() as session:</span><br><span class="line">    session.run(model)</span><br><span class="line">    for i in range(1000):</span><br><span class="line">        x_value=np.random.rand() </span><br><span class="line">        y_value=x_value*2+6</span><br><span class="line">        session.run([train_op],feed_dict=&#123;x:x_value,y:y_value&#125;)</span><br><span class="line"> </span><br><span class="line">    w_value=session.run(w)# get w</span><br><span class="line">    print (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</span><br></pre></td></tr></table></figure>
+        <h1 id="忽略警告"><a href="#忽略警告" class="headerlink" title="忽略警告"></a>忽略警告</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os  </span><br><span class="line">os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;]=&apos;2&apos;</span><br></pre></td></tr></table></figure>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">hello = tf.constant(&apos;Hello, TensorFlow!&apos;)</span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(hello))</span><br><span class="line">print(&quot;hello world!!&quot;)</span><br><span class="line">注意：：：</span><br><span class="line">global_variables_initializer()替换</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line">#import keras    装完keras后，去掉#尝试运行，用于检验安装</span><br><span class="line">x=tf.placeholder(&quot;float&quot;)</span><br><span class="line">y=tf.placeholder(&quot;float&quot;)</span><br><span class="line">w=tf.Variable([1.0,2.0],name=&apos;w&apos;)</span><br><span class="line">y_pred=tf.multiply(x,w[0])+w[1]</span><br><span class="line">error=tf.square(y-y_pred)</span><br></pre></td></tr></table></figure>
+<h1 id="4-训练"><a href="#4-训练" class="headerlink" title="4.训练"></a>4.训练</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)</span><br><span class="line">model=tf.initialize_all_variables()</span><br><span class="line"> </span><br><span class="line">with tf.Session() as session:</span><br><span class="line">    session.run(model)</span><br><span class="line">    for i in range(1000):</span><br><span class="line">        x_value=np.random.rand() </span><br><span class="line">        y_value=x_value*2+6</span><br><span class="line">        session.run([train_op],feed_dict=&#123;x:x_value,y:y_value&#125;)</span><br><span class="line"> </span><br><span class="line">    w_value=session.run(w)# get w</span><br><span class="line">    print (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -705,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-忽略警告"><span class="nav-number">1.</span> <span class="nav-text">1.忽略警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-运行"><span class="nav-number">2.</span> <span class="nav-text">#2.运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-测试"><span class="nav-number">3.</span> <span class="nav-text">#3.测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#忽略警告"><span class="nav-number">1.</span> <span class="nav-text">忽略警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行"><span class="nav-number">2.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-训练"><span class="nav-number">4.</span> <span class="nav-text">4.训练</span></a></li></ol></div>
             
 
           </div>
