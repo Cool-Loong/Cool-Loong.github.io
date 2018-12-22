@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello))">
+<meta name="description" content="一 忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   二 运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello">
 <meta name="keywords" content="tensorflow,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tensorflow">
 <meta property="og:url" content="https://Cool-Loong.github.io/2018/12/21/tensorflow-1/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello))">
+<meta property="og:description" content="一 忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   二 运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T12:29:46.174Z">
+<meta property="og:updated_time" content="2018-12-22T15:30:01.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow">
-<meta name="twitter:description" content="忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello))">
+<meta name="twitter:description" content="一 忽略CPU警告import osos.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’   二 运行TensorFlow1234567import tensorflow as tf   hello = tf.constant(&amp;apos;Hello, TensorFlow!&amp;apos;)  sess = tf.Session()  print(sess.run(hello">
 
 
 
@@ -394,7 +394,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-22T20:29:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-22T23:30:01+08:00">
                 2018-12-22
               </time>
             
@@ -471,9 +471,9 @@
       
 
       
-        <h1 id="忽略CPU警告"><a href="#忽略CPU警告" class="headerlink" title="忽略CPU警告"></a>忽略CPU警告</h1><p>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’  </p>
-<h1 id="运行TensorFlow"><a href="#运行TensorFlow" class="headerlink" title="运行TensorFlow"></a>运行TensorFlow</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf   </span><br><span class="line">hello = tf.constant(&apos;Hello, TensorFlow!&apos;)  </span><br><span class="line">sess = tf.Session()  </span><br><span class="line">print(sess.run(hello))  </span><br><span class="line">print(&quot;hello world!!&quot;)  </span><br><span class="line">注意：  </span><br><span class="line">global_variables_initializer()替换</span><br></pre></td></tr></table></figure>
-<h1 id="spyder-kreas检测是不是可以使用"><a href="#spyder-kreas检测是不是可以使用" class="headerlink" title="spyder kreas检测是不是可以使用"></a>spyder kreas检测是不是可以使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">import numpy as np  </span><br><span class="line"></span><br><span class="line">#import keras    装完keras后，去掉#尝试运行，用于检验安装  </span><br><span class="line"></span><br><span class="line">x=tf.placeholder(&quot;float&quot;)  </span><br><span class="line">y=tf.placeholder(&quot;float&quot;)  </span><br><span class="line">w=tf.Variable([1.0,2.0],name=&apos;w&apos;)  </span><br><span class="line">y_pred=tf.multiply(x,w[0])+w[1]  </span><br><span class="line">error=tf.square(y-y_pred)  </span><br><span class="line"> </span><br><span class="line">train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)  </span><br><span class="line">model=tf.initialize_all_variables()  </span><br><span class="line"> </span><br><span class="line">with tf.Session() as session:  </span><br><span class="line">    session.run(model)  </span><br><span class="line">    for i in range(1000):  </span><br><span class="line">        x_value=np.random.rand()  </span><br><span class="line">        y_value=x_value*2+6  </span><br><span class="line">        session.run([train_op],feed_dict=&#123;x:x_value,y:y_value&#125;)  </span><br><span class="line">    </span><br><span class="line">    w_value=session.run(w)# get w</span><br><span class="line">    print (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</span><br></pre></td></tr></table></figure>
+        <h1 id="一-忽略CPU警告"><a href="#一-忽略CPU警告" class="headerlink" title="一 忽略CPU警告"></a>一 忽略CPU警告</h1><p>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’  </p>
+<h1 id="二-运行TensorFlow"><a href="#二-运行TensorFlow" class="headerlink" title="二 运行TensorFlow"></a>二 运行TensorFlow</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf   </span><br><span class="line">hello = tf.constant(&apos;Hello, TensorFlow!&apos;)  </span><br><span class="line">sess = tf.Session()  </span><br><span class="line">print(sess.run(hello))  </span><br><span class="line">print(&quot;hello world!!&quot;)  </span><br><span class="line">注意：  </span><br><span class="line">global_variables_initializer()替换</span><br></pre></td></tr></table></figure>
+<h1 id="三-spyder-kreas检测是不是可以使用"><a href="#三-spyder-kreas检测是不是可以使用" class="headerlink" title="三 spyder kreas检测是不是可以使用"></a>三 spyder kreas检测是不是可以使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">import numpy as np  </span><br><span class="line"></span><br><span class="line">#import keras    装完keras后，去掉#尝试运行，用于检验安装  </span><br><span class="line"></span><br><span class="line">x=tf.placeholder(&quot;float&quot;)  </span><br><span class="line">y=tf.placeholder(&quot;float&quot;)  </span><br><span class="line">w=tf.Variable([1.0,2.0],name=&apos;w&apos;)  </span><br><span class="line">y_pred=tf.multiply(x,w[0])+w[1]  </span><br><span class="line">error=tf.square(y-y_pred)  </span><br><span class="line"> </span><br><span class="line">train_op=tf.train.GradientDescentOptimizer(0.02).minimize(error)  </span><br><span class="line">model=tf.initialize_all_variables()  </span><br><span class="line"> </span><br><span class="line">with tf.Session() as session:  </span><br><span class="line">    session.run(model)  </span><br><span class="line">    for i in range(1000):  </span><br><span class="line">        x_value=np.random.rand()  </span><br><span class="line">        y_value=x_value*2+6  </span><br><span class="line">        session.run([train_op],feed_dict=&#123;x:x_value,y:y_value&#125;)  </span><br><span class="line">    </span><br><span class="line">    w_value=session.run(w)# get w</span><br><span class="line">    print (&quot;ax+b,a=%.3f,b=%.3f&quot;%(w_value[0],w_value[1]))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -707,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#忽略CPU警告"><span class="nav-number">1.</span> <span class="nav-text">忽略CPU警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行TensorFlow"><span class="nav-number">2.</span> <span class="nav-text">运行TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spyder-kreas检测是不是可以使用"><span class="nav-number">3.</span> <span class="nav-text">spyder kreas检测是不是可以使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-忽略CPU警告"><span class="nav-number">1.</span> <span class="nav-text">一 忽略CPU警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-运行TensorFlow"><span class="nav-number">2.</span> <span class="nav-text">二 运行TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-spyder-kreas检测是不是可以使用"><span class="nav-number">3.</span> <span class="nav-text">三 spyder kreas检测是不是可以使用</span></a></li></ol></div>
             
 
           </div>
