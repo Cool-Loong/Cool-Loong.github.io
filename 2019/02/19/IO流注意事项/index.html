@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slad:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IO流注意事项">
+<meta property="og:url" content="https://Cool-Loong.github.io/2019/02/19/IO流注意事项/index.html">
+<meta property="og:site_name" content="Dragon&#39;s Blog">
+<meta property="og:description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4432347-ddbc1b96f5ccb688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4432347-1ce768b945041ce8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-02-19T07:18:50.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IO流注意事项">
+<meta name="twitter:description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/4432347-ddbc1b96f5ccb688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Cool-Loong.github.io/2019/02/19/IO流注意事项/">
+
+
+
+
+
+  <title>IO流注意事项 | Dragon's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c57f4466c8ee8b5845190ef36a0fd5df";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dragon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">loong</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cool-Loong.github.io/2019/02/19/IO流注意事项/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Loong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dragon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">IO流注意事项</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-19T15:16:50+08:00">
+                2019-02-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-19T15:18:50+08:00">
+                2019-02-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/19/IO流注意事项/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/19/IO流注意事项/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/19/IO流注意事项/" class="leancloud_visitors" data-flag-title="IO流注意事项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="IO流其他知识"><a href="#IO流其他知识" class="headerlink" title="IO流其他知识"></a>IO流其他知识</h4><h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><ul>
+<li>1.字符流出现的原因</li>
+<li>2.String中的编解码问题[理解]</li>
+<li>3.转换流[掌握]<ul>
+<li>3.1 转换流OutputStreamWriter的使用</li>
+<li>3.2 转换流InputStreamReader的使用</li>
+<li>3.3 字符流的5种写数据的方式</li>
+<li>3.4 字符流的2种读数据的方式</li>
+<li>3.5 高效流FileWriter和FileReader</li>
+<li>3.6 字符缓冲流的基本使用</li>
+<li>3.7 字符缓冲流的特殊功能</li>
+</ul>
+</li>
+<li>4.IO流的练习题<ul>
+<li>4.1 字符流复制文本文件</li>
+<li>4.2 FileWriter和FileReader复制文本文件</li>
+<li>4.3 字符缓冲流的特殊功能复制文本文件</li>
+<li>4.4 把集合中的数据存储到文本文件</li>
+<li>4.5 把文本文件中的数据存储到集合中</li>
+<li>4.6 随机获取文本文件中的姓名</li>
+<li>4.7 复制单级文件夹</li>
+<li>4.8 复制指定目录下指定后缀名的文件并修改名称</li>
+<li>4.7和4.8工具类</li>
+<li>4.9 键盘录入学生信息按照总分排序并写入文本文件</li>
+</ul>
+</li>
+<li>5.IO流大总结<ul>
+<li>5.1 按操作方式分类结构图</li>
+<li>5.2 按操作对象分类结构图</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-字符流出现的原因"><a href="#1-字符流出现的原因" class="headerlink" title="1.字符流出现的原因"></a>1.字符流出现的原因</h3><h4 id="1-1-字符流出现的原因及编码表概述"><a href="#1-1-字符流出现的原因及编码表概述" class="headerlink" title="1.1 字符流出现的原因及编码表概述"></a>1.1 字符流出现的原因及编码表概述</h4><ul>
+<li>字符流出现的原因:由于字节流操作中文不是特别方便，所以，java就提供了字符流。</li>
+<li>字符流:  字符流 = 字节流 + 编码表</li>
+</ul>
+<h3 id="2-String中的编解码问题"><a href="#2-String中的编解码问题" class="headerlink" title="2.String中的编解码问题"></a>2.String中的编解码问题</h3><h4 id="2-1-String类中的编码和解码问题"><a href="#2-1-String类中的编码和解码问题" class="headerlink" title="2.1 String类中的编码和解码问题"></a>2.1 String类中的编码和解码问题</h4><ul>
+<li>String(byte[] bytes, String charsetName):通过指定的字符集解码字节数组</li>
+<li>byte[] getBytes(String charsetName):使用指定的字符集合把字符串编码为字节数组</li>
+<li>编码:把看得懂的变成看不懂的:    String – byte[]</li>
+<li>解码:把看不懂的变成看得懂的:    byte[] – String</li>
+</ul>
+<h3 id="3-转换流-掌握"><a href="#3-转换流-掌握" class="headerlink" title="3.转换流[掌握]"></a>3.转换流[掌握]</h3><h4 id="3-1-转换流OutputStreamWriter的使用"><a href="#3-1-转换流OutputStreamWriter的使用" class="headerlink" title="3.1 转换流OutputStreamWriter的使用"></a>3.1 转换流OutputStreamWriter的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 字符输出流:		OutputStreamWriter (转换输出流)		字符流通向字节流的桥梁</span><br><span class="line"> * 		构造方法:</span><br><span class="line"> * 				public OutputStreamWriter(OutputStream out): 						使用默认字符集</span><br><span class="line"> * 				public OutputStreamWriter(OutputStream out , String charsetName):	使用指定的字符集</span><br><span class="line"> * 字符输入流:		InputStreamReader  (转换输入流)		字节流通向字符流的桥梁</span><br><span class="line"> * 		构造方法:</span><br><span class="line"> * 				public InputStreamReader(InputStream in)						使用的默认的编码表(GBK)</span><br><span class="line"> * 				public InputStreamReader(InputStream in , String charsetName)	使用指定的编码表</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class OutputStreamWriterDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// 创建: OutputStreamWriter</span><br><span class="line">		// 创建: OutputStream的对象</span><br><span class="line">//		FileOutputStream fos = new FileOutputStream(&quot;a.txt&quot;) ;</span><br><span class="line">//		OutputStreamWriter osw = new OutputStreamWriter(fos) ;</span><br><span class="line">//		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;a.txt&quot;)) ;</span><br><span class="line">		// public InputStreamReader(InputStream in , String charsetName)	使用指定的编码表</span><br><span class="line">		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;a.txt&quot;) , &quot;UTF-8&quot;) ;</span><br><span class="line">		// 调用方法</span><br><span class="line">		osw.write(&quot;中国&quot;) ;</span><br><span class="line">		// 释放资源</span><br><span class="line">		osw.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-转换流InputStreamReader的使用"><a href="#3-2-转换流InputStreamReader的使用" class="headerlink" title="3.2 转换流InputStreamReader的使用"></a>3.2 转换流InputStreamReader的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class InputStreamReaderDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// 创建对象InputStreamReader的对象</span><br><span class="line">		// public InputStreamReader(InputStream in): 使用的默认的编码表(GBK)</span><br><span class="line">//		FileInputStream fis = new FileInputStream(&quot;a.txt&quot;) ;</span><br><span class="line">//		InputStreamReader isr = new InputStreamReader(fis) ;</span><br><span class="line">//		InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;a.txt&quot;)) ;	// 默认的字符集就是GBK</span><br><span class="line">		</span><br><span class="line">		// public InputStreamReader(InputStream in , String charsetName)	使用指定的编码表</span><br><span class="line">		InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;a.txt&quot;) , &quot;utf-8&quot;) ;	</span><br><span class="line">		// 读取数据</span><br><span class="line">		int ch = 0 ;</span><br><span class="line">		while((ch = isr.read()) != -1)&#123;</span><br><span class="line">			System.out.print((char)ch);</span><br><span class="line">		&#125;</span><br><span class="line">		// 释放资源</span><br><span class="line">		isr.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-字符流的5种写数据的方式"><a href="#3-3-字符流的5种写数据的方式" class="headerlink" title="3.3 字符流的5种写数据的方式"></a>3.3 字符流的5种写数据的方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void write(int c)</span><br><span class="line">public void write(char[] cbuf)</span><br><span class="line">public void write(char[] cbuf,int off,int len)</span><br><span class="line">public void write(String str)</span><br><span class="line">public void write(String str,int off,int len)</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-字符流的2种读数据的方式"><a href="#3-4-字符流的2种读数据的方式" class="headerlink" title="3.4 字符流的2种读数据的方式"></a>3.4 字符流的2种读数据的方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public int read()</span><br><span class="line">public int read(char[] cbuf)</span><br></pre></td></tr></table></figure>
+<h4 id="3-5-高效流FileWriter和FileReader"><a href="#3-5-高效流FileWriter和FileReader" class="headerlink" title="3.5 高效流FileWriter和FileReader"></a>3.5 高效流FileWriter和FileReader</h4><h4 id="3-6-字符缓冲流的基本使用"><a href="#3-6-字符缓冲流的基本使用" class="headerlink" title="3.6 字符缓冲流的基本使用"></a>3.6 字符缓冲流的基本使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 高效的字符输入流	BufferedReader</span><br><span class="line"> * 高效的字符输出流	BufferedWriter</span><br><span class="line"> */</span><br><span class="line">public class BufferedWriterDemo &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		//写数据的方式</span><br><span class="line">//		write() ;</span><br><span class="line">		// 读取数据的方式</span><br><span class="line">		read() ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	/**</span><br><span class="line">	 * 使用高效的字符输入流进行读取数据</span><br><span class="line">	 * @throws IOException</span><br><span class="line">	 */</span><br><span class="line">	private static void read() throws IOException&#123;</span><br><span class="line">		// 创建高效的字符输入流对象</span><br><span class="line">		// public BufferedReader(Reader in)</span><br><span class="line">//		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(&quot;c.txt&quot;))) ;</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;c.txt&quot;)) ;</span><br><span class="line">		// 读取数据</span><br><span class="line">//		int ch = 0 ;</span><br><span class="line">//		while((ch = br.read()) != -1)&#123;</span><br><span class="line">//			System.out.print((char)ch);</span><br><span class="line">//		&#125;</span><br><span class="line">		char[] chs = new char[1024] ;</span><br><span class="line">		int len = 0 ;</span><br><span class="line">		while((len = br.read(chs)) != -1)&#123;</span><br><span class="line">			System.out.print(new String(chs , 0 , len));</span><br><span class="line">		&#125;</span><br><span class="line">		// 释放资源</span><br><span class="line">		br.close() ;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 使用高效的字符输出流进行写数据</span><br><span class="line">	 * @throws IOException </span><br><span class="line">	 */</span><br><span class="line">	private static void write() throws IOException &#123;</span><br><span class="line">		// 创建BufferedWriter对象</span><br><span class="line">		// public BufferedWriter(Writer out)</span><br><span class="line">//		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;c.txt&quot;)) ;</span><br><span class="line">//		BufferedWriter bw = new BufferedWriter(osw) ;</span><br><span class="line">//		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(&quot;c.txt&quot;))) ;</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;c.txt&quot;)) ;</span><br><span class="line">		// 写数据</span><br><span class="line">		bw.write(&quot;你好&quot;) ;</span><br><span class="line">		// 释放资源</span><br><span class="line">		bw.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-7-字符缓冲流的特殊功能"><a href="#3-7-字符缓冲流的特殊功能" class="headerlink" title="3.7 字符缓冲流的特殊功能"></a>3.7 字符缓冲流的特殊功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter:	public void newLine():根据系统来决定换行符</span><br><span class="line">BufferedReader:	public String readLine()：一次读取一行数据</span><br><span class="line">包含该行内容的字符串，不包含任何行终止符，如果已到达流末尾，则返回 null</span><br></pre></td></tr></table></figure>
+<h3 id="4-IO流的练习题"><a href="#4-IO流的练习题" class="headerlink" title="4.IO流的练习题"></a>4.IO流的练习题</h3><h4 id="4-1-字符流复制文本文件"><a href="#4-1-字符流复制文本文件" class="headerlink" title="4.1 字符流复制文本文件"></a>4.1 字符流复制文本文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class CopyFileDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// 创建转换输入流对象</span><br><span class="line">		InputStreamReader isr = new InputStreamReader(new FileInputStream(&quot;OutputStreamWriterDemo.java&quot;)) ;</span><br><span class="line">		// 创建转换输出流对象</span><br><span class="line">		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;copyFile.java&quot;)) ;</span><br><span class="line">		// 复制文件</span><br><span class="line">		// 一次读取一个字符复制</span><br><span class="line">//		int ch = 0 ;</span><br><span class="line">//		while((ch = isr.read()) != -1)&#123;</span><br><span class="line">//			osw.write(ch) ;</span><br><span class="line">//		&#125;</span><br><span class="line">		// 一次读取一个字符数组复制文件</span><br><span class="line">		char[] chs = new char[1024] ;</span><br><span class="line">		int len = 0 ;</span><br><span class="line">		while((len = isr.read(chs)) != -1)&#123;</span><br><span class="line">			osw.write(chs, 0, len) ;</span><br><span class="line">		&#125;</span><br><span class="line">		// 释放资源</span><br><span class="line">		osw.close() ;</span><br><span class="line">		isr.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-FileWriter和FileReader复制文本文件"><a href="#4-2-FileWriter和FileReader复制文本文件" class="headerlink" title="4.2 FileWriter和FileReader复制文本文件"></a>4.2 FileWriter和FileReader复制文本文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class CopyFileDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// 创建高效的字符输入流对象</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;OutputStreamWriterDemo.java&quot;)) ;</span><br><span class="line">		// 创建高效的字符输出流对象</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;copyFile3.java&quot;)) ;</span><br><span class="line">		// 一次读取一个字符数组复制文件</span><br><span class="line">		char[] chs = new char[1024] ;</span><br><span class="line">		int len = 0;</span><br><span class="line">		while((len = br.read(chs)) != -1)&#123;</span><br><span class="line">			bw.write(chs, 0, len) ;</span><br><span class="line">		&#125; </span><br><span class="line">		// 释放资源</span><br><span class="line">		bw.close() ;</span><br><span class="line">		br.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-字符缓冲流的特殊功能复制文本文件"><a href="#4-3-字符缓冲流的特殊功能复制文本文件" class="headerlink" title="4.3 字符缓冲流的特殊功能复制文本文件"></a>4.3 字符缓冲流的特殊功能复制文本文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class CopyFileDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		/**</span><br><span class="line">		 * 需求: 使用高效的字符流中特有的功能复制文本文件</span><br><span class="line">		 */</span><br><span class="line">		// 创建高效的字符输入流对象</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(&quot;OutputStreamWriterDemo.java&quot;)) ;</span><br><span class="line">		</span><br><span class="line">		// 高效的字符输出流对象</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;copyFile4.java&quot;)) ;</span><br><span class="line">		</span><br><span class="line">		// 复制文件</span><br><span class="line">		// 一次读取一行复制文件</span><br><span class="line">		String line = null ;</span><br><span class="line">		while((line = br.readLine()) != null) &#123;</span><br><span class="line">			bw.write(line) ;</span><br><span class="line">			bw.newLine() ;</span><br><span class="line">			bw.flush() ;</span><br><span class="line">		&#125;</span><br><span class="line">		// 释放资源</span><br><span class="line">		bw.close() ;</span><br><span class="line">		br.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-把集合中的数据存储到文本文件"><a href="#4-4-把集合中的数据存储到文本文件" class="headerlink" title="4.4 把集合中的数据存储到文本文件"></a>4.4 把集合中的数据存储到文本文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 把ArrayList集合中的数据存储到文本文件中</span><br><span class="line">	 * 分析:</span><br><span class="line">	 * 		1: 创建ArrayList集合对象</span><br><span class="line">	 * 		2: 添加数据</span><br><span class="line">	 * 		3: 创建高效的字符输出流对象</span><br><span class="line">	 * 		4: 遍历集合,获取每一个元素,然后通过流对象写出去</span><br><span class="line">	 * 		5: 释放资源</span><br><span class="line">	 */</span><br><span class="line">	// 创建ArrayList集合对象</span><br><span class="line">	ArrayList&lt;String&gt; al = new ArrayList&lt;String&gt;() ;</span><br><span class="line">	// 添加数据</span><br><span class="line">	al.add(&quot;西施&quot;) ;</span><br><span class="line">	al.add(&quot;貂蝉&quot;) ;</span><br><span class="line">	al.add(&quot;杨玉环&quot;) ;</span><br><span class="line">	al.add(&quot;王昭君&quot;) ;</span><br><span class="line">	// 创建高效的字符输出流对象</span><br><span class="line">	BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;names.txt&quot;)) ;</span><br><span class="line">	// 遍历集合,获取每一个元素,然后通过流对象写出去</span><br><span class="line">	for(String name : al) &#123;</span><br><span class="line">		bw.write(name) ;</span><br><span class="line">		bw.newLine() ;</span><br><span class="line">		bw.flush() ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 释放资源</span><br><span class="line">	bw.close() ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-5-把文本文件中的数据存储到集合中"><a href="#4-5-把文本文件中的数据存储到集合中" class="headerlink" title="4.5 把文本文件中的数据存储到集合中"></a>4.5 把文本文件中的数据存储到集合中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 从文本文件中读取数据(每一行为一个字符串数据)到集合中，并遍历集合</span><br><span class="line">	 * 分析:</span><br><span class="line">	 * 		1: 创建高效的字符输入流对象</span><br><span class="line">	 * 		2: 创建集合对象</span><br><span class="line">	 * 		3: 读取文本文件中的数据,将数据存储到集合中</span><br><span class="line">	 * 		4: 释放资源</span><br><span class="line">	 * 		5: 遍历集合</span><br><span class="line">	 */</span><br><span class="line">	// 1: 创建高效的字符输入流对象</span><br><span class="line">	BufferedReader br = new BufferedReader(new FileReader(&quot;names.txt&quot;)) ;</span><br><span class="line">	// 2: 创建集合对象</span><br><span class="line">	ArrayList&lt;String&gt; al = new ArrayList&lt;String&gt;() ;</span><br><span class="line">	// 3: 读取文本文件中的数据,将数据存储到集合中</span><br><span class="line">	String line = null ;	// 作用: 用来记录读取到的行数据</span><br><span class="line">	while((line = br.readLine()) != null) &#123;</span><br><span class="line">		al.add(line) ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 4: 释放资源</span><br><span class="line">	br.close() ;</span><br><span class="line">	// 5: 遍历集合</span><br><span class="line">	for(String name : al) &#123;</span><br><span class="line">		System.out.println(name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-6-随机获取文本文件中的姓名"><a href="#4-6-随机获取文本文件中的姓名" class="headerlink" title="4.6 随机获取文本文件中的姓名"></a>4.6 随机获取文本文件中的姓名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	// 1: 创建集合对象</span><br><span class="line">	ArrayList&lt;String&gt; students = new ArrayList&lt;String&gt; () ;</span><br><span class="line">	// 2: 创建BufferedReader对象</span><br><span class="line">	BufferedReader br = new BufferedReader(new FileReader(&quot;students.txt&quot;)) ;</span><br><span class="line">	// 3: 读取数据,把数据存储到集合中</span><br><span class="line">	String line = null ;</span><br><span class="line">	while((line = br.readLine()) != null) &#123;</span><br><span class="line">		students.add(line) ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 4: 释放资源</span><br><span class="line">	br.close() ;</span><br><span class="line">	// 5: 生成一个随机数</span><br><span class="line">	Random random = new Random() ;</span><br><span class="line">	int index = random.nextInt(students.size());</span><br><span class="line">	// 6: 把生成的随机数作为集合元素的索引,来获取一个元素</span><br><span class="line">	String name = students.get(index) ;</span><br><span class="line">	// 7: 把获取到的元素打印到控制台</span><br><span class="line">	System.out.println(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-7-复制单级文件夹"><a href="#4-7-复制单级文件夹" class="headerlink" title="4.7 复制单级文件夹"></a>4.7 复制单级文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 需求: 把C:\\course这个文件夹复制到D:\\course盘下</span><br><span class="line">	 * 分析:</span><br><span class="line">	 * 		1: 把C:\\course这个目录封装成一个File对象</span><br><span class="line">	 * 		2: 把D:\\course这个目录封装成一个File对象</span><br><span class="line">	 * 		3: 判断D:\\course是否存在,如果存在就创建一个文件夹</span><br><span class="line">	 * 		4: 获取C:\\course这个目录下所有的文件对应的File数组</span><br><span class="line">	 * 		5: 遍历数组,获取元素进行复制</span><br><span class="line">	 */</span><br><span class="line">	// 把C:\\course这个目录封装成一个File对象</span><br><span class="line">	File srcFolder = new File(&quot;C:\\course&quot;) ;</span><br><span class="line">	// 把D:\\course这个目录封装成一个File对象</span><br><span class="line">	File destFolder = new File(&quot;D:\\course&quot;) ;</span><br><span class="line">	// 判断D:\\course是否存在,如果存在就创建一个文件夹</span><br><span class="line">	if(!destFolder.exists())&#123;</span><br><span class="line">		destFolder.mkdir() ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 复制文件夹</span><br><span class="line">	IOUtils.copyFolder(srcFolder, destFolder, null) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-8-复制指定目录下指定后缀名的文件并修改名称"><a href="#4-8-复制指定目录下指定后缀名的文件并修改名称" class="headerlink" title="4.8 复制指定目录下指定后缀名的文件并修改名称"></a>4.8 复制指定目录下指定后缀名的文件并修改名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 把C:\\demo这个目录下所有的以.java结尾的文件复制到D:\\demo中,然后将这个文件的后缀名更改为.jad</span><br><span class="line">	 */</span><br><span class="line">	// 把C:\\demo这个目录下所有的以.java结尾的文件复制到D:\\demo中</span><br><span class="line">	// 1: 把C:\\demo这个目录封装成一个File对象</span><br><span class="line">	File srcFolder = new File(&quot;C:\\demo&quot;) ;</span><br><span class="line">	// 2: 把D:\\demo这么目录封装成一个File对象</span><br><span class="line">	File destFolder = new File(&quot;D:\\demo&quot;) ;</span><br><span class="line">	// 3: 判断D:\\demo这个路径是否存在</span><br><span class="line">	if(!destFolder.exists()) &#123;</span><br><span class="line">		destFolder.mkdir() ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 调用方法</span><br><span class="line">	IOUtils.copyFolder(srcFolder, destFolder, new FilenameFilter() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public boolean accept(File dir, String name) &#123;</span><br><span class="line">			return new File(dir , name).isFile() &amp;&amp; name.endsWith(&quot;.java&quot;) ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;) ;</span><br><span class="line">	System.out.println(&quot;-----------------------------------------------------&quot;);</span><br><span class="line">	// 获取destFolder下所有的文件对应的File数组</span><br><span class="line">	File[] files = destFolder.listFiles() ;</span><br><span class="line">	for(File f : files) &#123;</span><br><span class="line">		// 创建目标文件名称		</span><br><span class="line">		String destFileName = f.getName().replace(&quot;.java&quot;, &quot;.jad&quot;) ;</span><br><span class="line">		// 创建目标文件</span><br><span class="line">		File destFile = new File(destFolder , destFileName) ;</span><br><span class="line">		// 调用</span><br><span class="line">		f.renameTo(destFile) ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-7和4-8工具类"><a href="#4-7和4-8工具类" class="headerlink" title="4.7和4.8工具类"></a>4.7和4.8工具类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class IOUtils &#123;</span><br><span class="line">	</span><br><span class="line">	public static void copyFolder(String srcPahtName , String destPathName , FilenameFilter filenameFilter) throws IOException &#123;</span><br><span class="line">		File srcFolder = new File(srcPahtName) ;</span><br><span class="line">		File destFolder = new File(destPathName) ;</span><br><span class="line">		if(!destFolder.exists()) &#123;</span><br><span class="line">			destFolder.mkdir() ;</span><br><span class="line">		&#125;</span><br><span class="line">		copyFolder(srcFolder , destFolder , filenameFilter) ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void copyFolder(File srcFolder , File destFolder , FilenameFilter filenameFilter) throws IOException &#123;</span><br><span class="line">		File[] files = null ;</span><br><span class="line">		if(filenameFilter == null) &#123;</span><br><span class="line">			files = srcFolder.listFiles() ;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			files = srcFolder.listFiles(filenameFilter) ;</span><br><span class="line">		&#125;</span><br><span class="line">		// 遍历</span><br><span class="line">		for(File f : files) &#123;</span><br><span class="line">			// 创建目标文件</span><br><span class="line">			String destFileName = f.getName() ;</span><br><span class="line">			File destFile = new File(destFolder , destFileName) ; </span><br><span class="line">			// 复制文件</span><br><span class="line">			copyFile(f , destFile) ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	</span><br><span class="line">	public static void copyFile(File srcFile , File destFile) throws IOException &#123;</span><br><span class="line">		// 创建流对象</span><br><span class="line">		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(srcFile)) ;</span><br><span class="line">		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(destFile)) ;</span><br><span class="line">		</span><br><span class="line">		// 一次读取一个字节数组复制文件</span><br><span class="line">		byte[] bytes = new byte[1024] ;</span><br><span class="line">		int len = 0 ;</span><br><span class="line">		while((len = bis.read(bytes)) != -1)&#123;</span><br><span class="line">			bos.write(bytes, 0, len) ;</span><br><span class="line">		&#125;</span><br><span class="line">		// 释放资源</span><br><span class="line">		bos.close() ;</span><br><span class="line">		bis.close() ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-9-键盘录入学生信息按照总分排序并写入文本文件"><a href="#4-9-键盘录入学生信息按照总分排序并写入文本文件" class="headerlink" title="4.9 键盘录入学生信息按照总分排序并写入文本文件"></a>4.9 键盘录入学生信息按照总分排序并写入文本文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	</span><br><span class="line">	/**</span><br><span class="line">	 * 需求：键盘录入3个学生信息(姓名,语文成绩(chineseScore),数学成绩(mathScore),英语成绩(englishScore)),按照总分从高到低存入文本文件</span><br><span class="line">	 * 分析:</span><br><span class="line">	 * 		1: 创建一个学生类</span><br><span class="line">	 * 		2: 创建一个集合对象TreeSet集合</span><br><span class="line">	 * 		3: 键盘录入学生信息,把学生信息封装到学生对象中,然后把学生对象添加到集合中</span><br><span class="line">	 * 		4: 创建一个高效的字符输出流对象</span><br><span class="line">	 * 		5: 遍历集合,获取每一个元素,把其信息写入到文件中</span><br><span class="line">	 * 		6: 释放资源</span><br><span class="line">	 */</span><br><span class="line">	//  创建一个集合对象TreeSet集合</span><br><span class="line">	TreeSet&lt;Student&gt; ts = new TreeSet&lt;Student&gt;(new Comparator&lt;Student&gt;() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public int compare(Student s1, Student s2) &#123;</span><br><span class="line">			// 总分</span><br><span class="line">			int num = s2.getTotalScore() - s1.getTotalScore() ;</span><br><span class="line">			// 比较姓名</span><br><span class="line">			int num2 = (num == 0) ? s2.getName().compareTo(s1.getName()) : num ;</span><br><span class="line">			// 返回</span><br><span class="line">			return num2;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;) ;</span><br><span class="line">	</span><br><span class="line">	// 3: 键盘录入学生信息,把学生信息封装到学生对象中,然后把学生对象添加到集合中</span><br><span class="line">	for(int x = 1 ; x &lt;= 3 ; x++) &#123;</span><br><span class="line">		// 创建Scanner对象</span><br><span class="line">		Scanner sc = new Scanner(System.in) ;</span><br><span class="line">		System.out.println(&quot;请您输入第&quot; + x + &quot;个学生的姓名&quot; );</span><br><span class="line">		String sutName = sc.nextLine() ;</span><br><span class="line">		System.out.println(&quot;请您输入第&quot; + x + &quot;个学生的语文成绩&quot; );</span><br><span class="line">		int chineseScore = sc.nextInt() ;</span><br><span class="line">		System.out.println(&quot;请您输入第&quot; + x + &quot;个学生的数学成绩&quot; );</span><br><span class="line">		int mathScore = sc.nextInt() ;</span><br><span class="line">		System.out.println(&quot;请您输入第&quot; + x + &quot;个学生的英语成绩&quot; );</span><br><span class="line">		int englishScore = sc.nextInt() ;</span><br><span class="line">		</span><br><span class="line">		// 把学生的信封装到一个学生对象中</span><br><span class="line">		Student s = new Student() ;</span><br><span class="line">		s.setName(sutName) ;</span><br><span class="line">		s.setMathScore(mathScore) ;</span><br><span class="line">		s.setChineseScore(chineseScore) ;</span><br><span class="line">		s.setEnglishScore(englishScore) ;</span><br><span class="line">		// 把学生的信息添加到集合中</span><br><span class="line">		ts.add(s) ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// 创建一个高效的字符输出流对象</span><br><span class="line">	BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;student.info&quot;)) ;</span><br><span class="line">	bw.write(&quot;==========================================学生的信息如下====================================================&quot;) ;</span><br><span class="line">	bw.newLine() ;</span><br><span class="line">	bw.flush() ;</span><br><span class="line">	bw.write(&quot;姓名\t\t总分\t\t数学成绩\t\t语文成绩\t\t英语成绩\t\t&quot;) ;</span><br><span class="line">	bw.newLine() ;</span><br><span class="line">	bw.flush() ;</span><br><span class="line">	for(Student t : ts) &#123;</span><br><span class="line">		bw.write(t.getName() + &quot;\t\t&quot; + t.getTotalScore() + &quot;\t\t&quot; + t.getMathScore() + &quot;\t\t&quot; + t.getChineseScore() + &quot;\t\t&quot; + t.getEnglishScore()) ;</span><br><span class="line">		bw.newLine() ;</span><br><span class="line">		bw.flush() ;</span><br><span class="line">	&#125;</span><br><span class="line">	// 释放资源</span><br><span class="line">	bw.close() ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-IO流大总结【图是摘自网络，感觉很棒】"><a href="#5-IO流大总结【图是摘自网络，感觉很棒】" class="headerlink" title="5.IO流大总结【图是摘自网络，感觉很棒】"></a>5.IO流大总结【图是摘自网络，感觉很棒】</h3><h4 id="5-1-按操作方式分类结构图"><a href="#5-1-按操作方式分类结构图" class="headerlink" title="5.1 按操作方式分类结构图"></a>5.1 按操作方式分类结构图</h4><ul>
+<li>关于IO流总结如下图所示</li>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-ddbc1b96f5ccb688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></li>
+</ul>
+<h4 id="5-2-按操作对象分类结构图"><a href="#5-2-按操作对象分类结构图" class="headerlink" title="5.2 按操作对象分类结构图"></a>5.2 按操作对象分类结构图</h4><ul>
+<li>关于IO流总结如下图所示</li>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-1ce768b945041ce8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+    
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wx.png" alt="Loong 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/zfb.jpg" alt="Loong 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/19/IO流/" rel="next" title="IO流">
+                <i class="fa fa-chevron-left"></i> IO流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.jpg" alt="Loong">
+            
+              <p class="site-author-name" itemprop="name">Loong</p>
+              <p class="site-description motion-element" itemprop="description">时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Cool-Loong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#IO流其他知识"><span class="nav-number">1.</span> <span class="nav-text">IO流其他知识</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#目录介绍"><span class="nav-number"></span> <span class="nav-text">目录介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符流出现的原因"><span class="nav-number"></span> <span class="nav-text">1.字符流出现的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-字符流出现的原因及编码表概述"><span class="nav-number">1.</span> <span class="nav-text">1.1 字符流出现的原因及编码表概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-String中的编解码问题"><span class="nav-number"></span> <span class="nav-text">2.String中的编解码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-String类中的编码和解码问题"><span class="nav-number">1.</span> <span class="nav-text">2.1 String类中的编码和解码问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转换流-掌握"><span class="nav-number"></span> <span class="nav-text">3.转换流[掌握]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-转换流OutputStreamWriter的使用"><span class="nav-number">1.</span> <span class="nav-text">3.1 转换流OutputStreamWriter的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-转换流InputStreamReader的使用"><span class="nav-number">2.</span> <span class="nav-text">3.2 转换流InputStreamReader的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-字符流的5种写数据的方式"><span class="nav-number">3.</span> <span class="nav-text">3.3 字符流的5种写数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-字符流的2种读数据的方式"><span class="nav-number">4.</span> <span class="nav-text">3.4 字符流的2种读数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-高效流FileWriter和FileReader"><span class="nav-number">5.</span> <span class="nav-text">3.5 高效流FileWriter和FileReader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-字符缓冲流的基本使用"><span class="nav-number">6.</span> <span class="nav-text">3.6 字符缓冲流的基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-字符缓冲流的特殊功能"><span class="nav-number">7.</span> <span class="nav-text">3.7 字符缓冲流的特殊功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-IO流的练习题"><span class="nav-number"></span> <span class="nav-text">4.IO流的练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-字符流复制文本文件"><span class="nav-number">1.</span> <span class="nav-text">4.1 字符流复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-FileWriter和FileReader复制文本文件"><span class="nav-number">2.</span> <span class="nav-text">4.2 FileWriter和FileReader复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-字符缓冲流的特殊功能复制文本文件"><span class="nav-number">3.</span> <span class="nav-text">4.3 字符缓冲流的特殊功能复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-把集合中的数据存储到文本文件"><span class="nav-number">4.</span> <span class="nav-text">4.4 把集合中的数据存储到文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-把文本文件中的数据存储到集合中"><span class="nav-number">5.</span> <span class="nav-text">4.5 把文本文件中的数据存储到集合中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-随机获取文本文件中的姓名"><span class="nav-number">6.</span> <span class="nav-text">4.6 随机获取文本文件中的姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-复制单级文件夹"><span class="nav-number">7.</span> <span class="nav-text">4.7 复制单级文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-复制指定目录下指定后缀名的文件并修改名称"><span class="nav-number">8.</span> <span class="nav-text">4.8 复制指定目录下指定后缀名的文件并修改名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7和4-8工具类"><span class="nav-number">9.</span> <span class="nav-text">4.7和4.8工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-9-键盘录入学生信息按照总分排序并写入文本文件"><span class="nav-number">10.</span> <span class="nav-text">4.9 键盘录入学生信息按照总分排序并写入文本文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-IO流大总结【图是摘自网络，感觉很棒】"><span class="nav-number"></span> <span class="nav-text">5.IO流大总结【图是摘自网络，感觉很棒】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-按操作方式分类结构图"><span class="nav-number">1.</span> <span class="nav-text">5.1 按操作方式分类结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-按操作对象分类结构图"><span class="nav-number">2.</span> <span class="nav-text">5.2 按操作对象分类结构图</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Loong</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-cool-loong-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://Cool-Loong.github.io/2019/02/19/IO流注意事项/';
+          this.page.identifier = '2019/02/19/IO流注意事项/';
+          this.page.title = 'IO流注意事项';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-cool-loong-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Fg26DOHpM82MPxUtOmli9UEM-gzGzoHsz", "T1VSwR8O6tdV7JICpnPif8WX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
