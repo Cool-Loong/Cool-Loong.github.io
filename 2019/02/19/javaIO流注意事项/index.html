@@ -123,20 +123,20 @@
 
 
 
-<meta name="description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta name="description" content="1.字符流出现的原因1.1 字符流出现的原因及编码表概述 字符流出现的原因:由于字节流操作中文不是特别方便，所以，java就提供了字符流。 字符流:  字符流 = 字节流 + 编码表  2.String中的编解码问题2.1 String类中的编码和解码问题 String(byte[] bytes, String charsetName):通过指定的字符集解码字节数组 byte[] getBytes">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IO流注意事项">
+<meta property="og:title" content="javaIO流注意事项">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/02/19/javaIO流注意事项/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta property="og:description" content="1.字符流出现的原因1.1 字符流出现的原因及编码表概述 字符流出现的原因:由于字节流操作中文不是特别方便，所以，java就提供了字符流。 字符流:  字符流 = 字节流 + 编码表  2.String中的编解码问题2.1 String类中的编码和解码问题 String(byte[] bytes, String charsetName):通过指定的字符集解码字节数组 byte[] getBytes">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4432347-ddbc1b96f5ccb688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4432347-1ce768b945041ce8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-19T07:18:50.143Z">
+<meta property="og:updated_time" content="2019-02-22T07:27:32.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IO流注意事项">
-<meta name="twitter:description" content="IO流其他知识目录介绍 1.字符流出现的原因 2.String中的编解码问题[理解] 3.转换流[掌握] 3.1 转换流OutputStreamWriter的使用 3.2 转换流InputStreamReader的使用 3.3 字符流的5种写数据的方式 3.4 字符流的2种读数据的方式 3.5 高效流FileWriter和FileReader 3.6 字符缓冲流的基本使用 3.7 字符缓冲流的特殊">
+<meta name="twitter:title" content="javaIO流注意事项">
+<meta name="twitter:description" content="1.字符流出现的原因1.1 字符流出现的原因及编码表概述 字符流出现的原因:由于字节流操作中文不是特别方便，所以，java就提供了字符流。 字符流:  字符流 = 字节流 + 编码表  2.String中的编解码问题2.1 String类中的编码和解码问题 String(byte[] bytes, String charsetName):通过指定的字符集解码字节数组 byte[] getBytes">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/4432347-ddbc1b96f5ccb688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -173,7 +173,7 @@
 
 
 
-  <title>IO流注意事项 | Dragon's Blog</title>
+  <title>javaIO流注意事项 | Dragon's Blog</title>
   
 
 
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">IO流注意事项</h1>
+          <h1 class="post-title" itemprop="name headline">javaIO流注意事项</h1>
         
 
         <div class="post-meta">
@@ -397,8 +397,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-19T15:18:50+08:00">
-                2019-02-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T15:27:32+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -443,7 +443,7 @@
 
           
           
-             <span id="/2019/02/19/javaIO流注意事项/" class="leancloud_visitors" data-flag-title="IO流注意事项">
+             <span id="/2019/02/19/javaIO流注意事项/" class="leancloud_visitors" data-flag-title="javaIO流注意事项">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -474,39 +474,7 @@
       
 
       
-        <h4 id="IO流其他知识"><a href="#IO流其他知识" class="headerlink" title="IO流其他知识"></a>IO流其他知识</h4><h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><ul>
-<li>1.字符流出现的原因</li>
-<li>2.String中的编解码问题[理解]</li>
-<li>3.转换流[掌握]<ul>
-<li>3.1 转换流OutputStreamWriter的使用</li>
-<li>3.2 转换流InputStreamReader的使用</li>
-<li>3.3 字符流的5种写数据的方式</li>
-<li>3.4 字符流的2种读数据的方式</li>
-<li>3.5 高效流FileWriter和FileReader</li>
-<li>3.6 字符缓冲流的基本使用</li>
-<li>3.7 字符缓冲流的特殊功能</li>
-</ul>
-</li>
-<li>4.IO流的练习题<ul>
-<li>4.1 字符流复制文本文件</li>
-<li>4.2 FileWriter和FileReader复制文本文件</li>
-<li>4.3 字符缓冲流的特殊功能复制文本文件</li>
-<li>4.4 把集合中的数据存储到文本文件</li>
-<li>4.5 把文本文件中的数据存储到集合中</li>
-<li>4.6 随机获取文本文件中的姓名</li>
-<li>4.7 复制单级文件夹</li>
-<li>4.8 复制指定目录下指定后缀名的文件并修改名称</li>
-<li>4.7和4.8工具类</li>
-<li>4.9 键盘录入学生信息按照总分排序并写入文本文件</li>
-</ul>
-</li>
-<li>5.IO流大总结<ul>
-<li>5.1 按操作方式分类结构图</li>
-<li>5.2 按操作对象分类结构图</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-字符流出现的原因"><a href="#1-字符流出现的原因" class="headerlink" title="1.字符流出现的原因"></a>1.字符流出现的原因</h3><h4 id="1-1-字符流出现的原因及编码表概述"><a href="#1-1-字符流出现的原因及编码表概述" class="headerlink" title="1.1 字符流出现的原因及编码表概述"></a>1.1 字符流出现的原因及编码表概述</h4><ul>
+        <h3 id="1-字符流出现的原因"><a href="#1-字符流出现的原因" class="headerlink" title="1.字符流出现的原因"></a>1.字符流出现的原因</h3><h4 id="1-1-字符流出现的原因及编码表概述"><a href="#1-1-字符流出现的原因及编码表概述" class="headerlink" title="1.1 字符流出现的原因及编码表概述"></a>1.1 字符流出现的原因及编码表概述</h4><ul>
 <li>字符流出现的原因:由于字节流操作中文不是特别方便，所以，java就提供了字符流。</li>
 <li>字符流:  字符流 = 字节流 + 编码表</li>
 </ul>
@@ -609,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/19/javaIO流基础/" rel="next" title="IO流">
-                <i class="fa fa-chevron-left"></i> IO流
+              <a href="/2019/02/19/javaIO流基础/" rel="next" title="javaIO流基础">
+                <i class="fa fa-chevron-left"></i> javaIO流基础
               </a>
             
           </div>
@@ -710,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -732,7 +700,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -775,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#IO流其他知识"><span class="nav-number">1.</span> <span class="nav-text">IO流其他知识</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#目录介绍"><span class="nav-number"></span> <span class="nav-text">目录介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符流出现的原因"><span class="nav-number"></span> <span class="nav-text">1.字符流出现的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-字符流出现的原因及编码表概述"><span class="nav-number">1.</span> <span class="nav-text">1.1 字符流出现的原因及编码表概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-String中的编解码问题"><span class="nav-number"></span> <span class="nav-text">2.String中的编解码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-String类中的编码和解码问题"><span class="nav-number">1.</span> <span class="nav-text">2.1 String类中的编码和解码问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转换流-掌握"><span class="nav-number"></span> <span class="nav-text">3.转换流[掌握]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-转换流OutputStreamWriter的使用"><span class="nav-number">1.</span> <span class="nav-text">3.1 转换流OutputStreamWriter的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-转换流InputStreamReader的使用"><span class="nav-number">2.</span> <span class="nav-text">3.2 转换流InputStreamReader的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-字符流的5种写数据的方式"><span class="nav-number">3.</span> <span class="nav-text">3.3 字符流的5种写数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-字符流的2种读数据的方式"><span class="nav-number">4.</span> <span class="nav-text">3.4 字符流的2种读数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-高效流FileWriter和FileReader"><span class="nav-number">5.</span> <span class="nav-text">3.5 高效流FileWriter和FileReader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-字符缓冲流的基本使用"><span class="nav-number">6.</span> <span class="nav-text">3.6 字符缓冲流的基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-字符缓冲流的特殊功能"><span class="nav-number">7.</span> <span class="nav-text">3.7 字符缓冲流的特殊功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-IO流的练习题"><span class="nav-number"></span> <span class="nav-text">4.IO流的练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-字符流复制文本文件"><span class="nav-number">1.</span> <span class="nav-text">4.1 字符流复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-FileWriter和FileReader复制文本文件"><span class="nav-number">2.</span> <span class="nav-text">4.2 FileWriter和FileReader复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-字符缓冲流的特殊功能复制文本文件"><span class="nav-number">3.</span> <span class="nav-text">4.3 字符缓冲流的特殊功能复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-把集合中的数据存储到文本文件"><span class="nav-number">4.</span> <span class="nav-text">4.4 把集合中的数据存储到文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-把文本文件中的数据存储到集合中"><span class="nav-number">5.</span> <span class="nav-text">4.5 把文本文件中的数据存储到集合中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-随机获取文本文件中的姓名"><span class="nav-number">6.</span> <span class="nav-text">4.6 随机获取文本文件中的姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-复制单级文件夹"><span class="nav-number">7.</span> <span class="nav-text">4.7 复制单级文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-复制指定目录下指定后缀名的文件并修改名称"><span class="nav-number">8.</span> <span class="nav-text">4.8 复制指定目录下指定后缀名的文件并修改名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7和4-8工具类"><span class="nav-number">9.</span> <span class="nav-text">4.7和4.8工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-9-键盘录入学生信息按照总分排序并写入文本文件"><span class="nav-number">10.</span> <span class="nav-text">4.9 键盘录入学生信息按照总分排序并写入文本文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-IO流大总结【图是摘自网络，感觉很棒】"><span class="nav-number"></span> <span class="nav-text">5.IO流大总结【图是摘自网络，感觉很棒】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-按操作方式分类结构图"><span class="nav-number">1.</span> <span class="nav-text">5.1 按操作方式分类结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-按操作对象分类结构图"><span class="nav-number">2.</span> <span class="nav-text">5.2 按操作对象分类结构图</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符流出现的原因"><span class="nav-number">1.</span> <span class="nav-text">1.字符流出现的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-字符流出现的原因及编码表概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 字符流出现的原因及编码表概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-String中的编解码问题"><span class="nav-number">2.</span> <span class="nav-text">2.String中的编解码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-String类中的编码和解码问题"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 String类中的编码和解码问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转换流-掌握"><span class="nav-number">3.</span> <span class="nav-text">3.转换流[掌握]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-转换流OutputStreamWriter的使用"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 转换流OutputStreamWriter的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-转换流InputStreamReader的使用"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 转换流InputStreamReader的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-字符流的5种写数据的方式"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 字符流的5种写数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-字符流的2种读数据的方式"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 字符流的2种读数据的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-高效流FileWriter和FileReader"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 高效流FileWriter和FileReader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-字符缓冲流的基本使用"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 字符缓冲流的基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-字符缓冲流的特殊功能"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 字符缓冲流的特殊功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-IO流的练习题"><span class="nav-number">4.</span> <span class="nav-text">4.IO流的练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-字符流复制文本文件"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 字符流复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-FileWriter和FileReader复制文本文件"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 FileWriter和FileReader复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-字符缓冲流的特殊功能复制文本文件"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 字符缓冲流的特殊功能复制文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-把集合中的数据存储到文本文件"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 把集合中的数据存储到文本文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-把文本文件中的数据存储到集合中"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 把文本文件中的数据存储到集合中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-随机获取文本文件中的姓名"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 随机获取文本文件中的姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-复制单级文件夹"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 复制单级文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-复制指定目录下指定后缀名的文件并修改名称"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 复制指定目录下指定后缀名的文件并修改名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7和4-8工具类"><span class="nav-number">4.9.</span> <span class="nav-text">4.7和4.8工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-9-键盘录入学生信息按照总分排序并写入文本文件"><span class="nav-number">4.10.</span> <span class="nav-text">4.9 键盘录入学生信息按照总分排序并写入文本文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-IO流大总结【图是摘自网络，感觉很棒】"><span class="nav-number">5.</span> <span class="nav-text">5.IO流大总结【图是摘自网络，感觉很棒】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-按操作方式分类结构图"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 按操作方式分类结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-按操作对象分类结构图"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 按操作对象分类结构图</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -961,7 +929,7 @@
         var disqus_config = function () {
           this.page.url = 'https://Cool-Loong.github.io/2019/02/19/javaIO流注意事项/';
           this.page.identifier = '2019/02/19/javaIO流注意事项/';
-          this.page.title = 'IO流注意事项';
+          this.page.title = 'javaIO流注意事项';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-cool-loong-github-io.disqus.com/embed.js';

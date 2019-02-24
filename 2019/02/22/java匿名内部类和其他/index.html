@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="java,String,">
+  <meta name="keywords" content="java,class,package,">
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1.String的创建机理 由于String在Java世界中使用过于频繁，Java为了避免在一个系统中产生大量的String对象，引入了字符串常量池。其运行机制是：创建一个字符串时，首先检查池中是否有值相同的字符串对象，如果有则不需要创建直接从池中刚查找到的对象引用；如果没有则新建字符串对象，返回对象引用，并且将新创建的对象放入池中。但是，通过new方法创建的String对象是不检查字符串池的，而">
-<meta name="keywords" content="java,String">
+<meta name="description" content="内部类概述和访问特点 A:内部类概述:    把类定义在其他类的内部，这个类就被称为内部类。 举例：在类A中定义了一个类B，类B就是内部类。   B:内部类访问特点 a:内部类可以直接访问外部类的成员，包括私有。 b:外部类要访问内部类的成员，必须创建对象。    内部类分类及成员内部类的直接使用 A:按照内部类位置分类 成员位置:在成员位置定义的类，被称为成员内部类。    局部位置:在局部位置">
+<meta name="keywords" content="java,class,package">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java的String类">
-<meta property="og:url" content="https://Cool-Loong.github.io/2019/02/21/java的String类/index.html">
+<meta property="og:title" content="java匿名内部类和其他">
+<meta property="og:url" content="https://Cool-Loong.github.io/2019/02/22/java匿名内部类和其他/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="1.String的创建机理 由于String在Java世界中使用过于频繁，Java为了避免在一个系统中产生大量的String对象，引入了字符串常量池。其运行机制是：创建一个字符串时，首先检查池中是否有值相同的字符串对象，如果有则不需要创建直接从池中刚查找到的对象引用；如果没有则新建字符串对象，返回对象引用，并且将新创建的对象放入池中。但是，通过new方法创建的String对象是不检查字符串池的，而">
+<meta property="og:description" content="内部类概述和访问特点 A:内部类概述:    把类定义在其他类的内部，这个类就被称为内部类。 举例：在类A中定义了一个类B，类B就是内部类。   B:内部类访问特点 a:内部类可以直接访问外部类的成员，包括私有。 b:外部类要访问内部类的成员，必须创建对象。    内部类分类及成员内部类的直接使用 A:按照内部类位置分类 成员位置:在成员位置定义的类，被称为成员内部类。    局部位置:在局部位置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-21T02:36:49.589Z">
+<meta property="og:updated_time" content="2019-02-22T07:34:17.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java的String类">
-<meta name="twitter:description" content="1.String的创建机理 由于String在Java世界中使用过于频繁，Java为了避免在一个系统中产生大量的String对象，引入了字符串常量池。其运行机制是：创建一个字符串时，首先检查池中是否有值相同的字符串对象，如果有则不需要创建直接从池中刚查找到的对象引用；如果没有则新建字符串对象，返回对象引用，并且将新创建的对象放入池中。但是，通过new方法创建的String对象是不检查字符串池的，而">
+<meta name="twitter:title" content="java匿名内部类和其他">
+<meta name="twitter:description" content="内部类概述和访问特点 A:内部类概述:    把类定义在其他类的内部，这个类就被称为内部类。 举例：在类A中定义了一个类B，类B就是内部类。   B:内部类访问特点 a:内部类可以直接访问外部类的成员，包括私有。 b:外部类要访问内部类的成员，必须创建对象。    内部类分类及成员内部类的直接使用 A:按照内部类位置分类 成员位置:在成员位置定义的类，被称为成员内部类。    局部位置:在局部位置">
 
 
 
@@ -164,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://Cool-Loong.github.io/2019/02/21/java的String类/">
+  <link rel="canonical" href="https://Cool-Loong.github.io/2019/02/22/java匿名内部类和其他/">
 
 
 
 
 
-  <title>java的String类 | Dragon's Blog</title>
+  <title>java匿名内部类和其他 | Dragon's Blog</title>
   
 
 
@@ -349,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cool-Loong.github.io/2019/02/21/java的String类/">
+    <link itemprop="mainEntityOfPage" href="https://Cool-Loong.github.io/2019/02/22/java匿名内部类和其他/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Loong">
@@ -366,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java的String类</h1>
+          <h1 class="post-title" itemprop="name headline">java匿名内部类和其他</h1>
         
 
         <div class="post-meta">
@@ -378,8 +378,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T09:54:34+08:00">
-                2019-02-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T15:31:53+08:00">
+                2019-02-22
               </time>
             
 
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-21T10:36:49+08:00">
-                2019-02-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T15:34:17+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -431,8 +431,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/21/java的String类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/21/java的String类/" itemprop="commentCount"></span>
+                <a href="/2019/02/22/java匿名内部类和其他/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/22/java匿名内部类和其他/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -440,7 +440,7 @@
 
           
           
-             <span id="/2019/02/21/java的String类/" class="leancloud_visitors" data-flag-title="java的String类">
+             <span id="/2019/02/22/java匿名内部类和其他/" class="leancloud_visitors" data-flag-title="java匿名内部类和其他">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -471,49 +471,140 @@
       
 
       
-        <h3 id="1-String的创建机理"><a href="#1-String的创建机理" class="headerlink" title="1.String的创建机理"></a>1.String的创建机理</h3><ul>
-<li>由于String在Java世界中使用过于频繁，Java为了避免在一个系统中产生大量的String对象，引入了字符串常量池。其运行机制是：创建一个字符串时，首先检查池中是否有值相同的字符串对象，如果有则不需要创建直接从池中刚查找到的对象引用；如果没有则新建字符串对象，返回对象引用，并且将新创建的对象放入池中。但是，通过new方法创建的String对象是不检查字符串池的，而是直接在堆区或栈区创建一个新的对象，也不会把对象放入池中。上述原则只适用于通过直接量给String对象引用赋值的情况。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">举例：String str1 = &quot;123&quot;; //通过直接量赋值方式，放入字符串常量池</span><br><span class="line">String str2 = new String(“123”);//通过new方式赋值方式，不放入字符串常量池</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：String提供了inter()方法。调用该方法时，如果常量池中包括了一个等于此String对象的字符串（由equals方法确定），则返回池中的字符串。否则，将此String对象添加到池中，并且返回此池中对象的引用。</li>
-</ul>
-<h3 id="2-StringBuffer-StringBuilder"><a href="#2-StringBuffer-StringBuilder" class="headerlink" title="2.StringBuffer/StringBuilder"></a>2.StringBuffer/StringBuilder</h3><ul>
-<li>StringBuffer和StringBuilder都实现了AbstractStringBuilder抽象类，拥有几乎一致对外提供的调用接口；其底层在内存中的存储方式与String相同，都是以一个有序的字符序列（char类型的数组）进行存储，不同点是StringBuffer/StringBuilder对象的值是可以改变的，并且值改变以后，对象引用不会发生改变;两者对象在构造过程中，首先按照默认大小申请一个字符数组，由于会不断加入新数据，当超过默认大小后，会创建一个更大的数组，并将原先的数组内容复制过来，再丢弃旧的数组。因此，对于较大对象的扩容会涉及大量的内存复制操作，如果能够预先评估大小，可提升性能。</li>
-</ul>
-<h3 id="3-String类的考点分析"><a href="#3-String类的考点分析" class="headerlink" title="3.String类的考点分析"></a>3.String类的考点分析</h3><ul>
-<li>通过 String 和相关类，考察基本的线程安全设计与实现，各种基础编程实践。</li>
-<li>考察 JVM 对象缓存机制的理解以及如何良好地使用。</li>
-<li>考察 JVM 优化 Java 代码的一些技巧。</li>
-<li>String 相关类的演进，比如 Java 9 中实现的巨大…</li>
-</ul>
-<h3 id="4-String技术点深入分析"><a href="#4-String技术点深入分析" class="headerlink" title="4.String技术点深入分析"></a>4.String技术点深入分析</h3><h4 id="4-1-String类是典型的Immutable类"><a href="#4-1-String类是典型的Immutable类" class="headerlink" title="4.1 String类是典型的Immutable类"></a>4.1 String类是典型的Immutable类</h4><ul>
-<li>是典型的 Immutable 类，被声明成为 final class，所有属性也都是 final 的。也由于它的不可变，类似拼接、裁剪字符串等动作，都会产生新的 String 对象。</li>
-</ul>
-<h4 id="4-2-字符串设计和实现考量"><a href="#4-2-字符串设计和实现考量" class="headerlink" title="4.2 字符串设计和实现考量"></a>4.2 字符串设计和实现考量</h4><ul>
-<li>String 是 Immutable 类的典型实现，原生的保证了基础线程安全，因为你无法对它内部数据进行任何修改，这种便利甚至体现在拷贝构造函数中，由于不可变，Immutable 对象在拷贝时不需要额外复制数据。</li>
-<li>为了实现修改字符序列的目的，StringBuffer 和 StringBuilder 底层都是利用可修改的（char，JDK 9 以后是 byte）数组，二者都继承了 AbstractStringBuilder，里面包含了基本操作，区别仅在于最终的方法是否加了 synchronized。</li>
-<li>这个内部数组应该创建成多大的呢？如果太小，拼接的时候可能要重新创建足够大的数组；如果太大，又会浪费空间。目前的实现是，构建时初始字符串长度加 16（这意味着，如果没有构建对象时输入最初的字符串，那么初始值就是 16）。我们如果确定拼接会发生非常多次，而且大概是可预计的，那么就可以指定合适的大小，避免很多次扩容的开销。扩容会产生多重开销，因为要抛弃原有数组，创建新的（可以简单认为是倍数）数组，还要进行arraycopy。</li>
-</ul>
-<h4 id="4-3-字符串缓存"><a href="#4-3-字符串缓存" class="headerlink" title="4.3 字符串缓存"></a>4.3 字符串缓存</h4><ul>
-<li>String 在 Java 6 以后提供了 intern()方法，目的是提示 JVM 把相应字符串缓存起来，以备重复使用。在我们创建字符串对象并调用 intern() 方法的时候，如果已经有缓存的字符串，就会返回缓存里的实例，否则将其缓存起来。</li>
-<li>在后续版本中，这个缓存被放置在堆中，这样就极大避免了永久代占满的问题，甚至永久代在 JDK 8 中被 MetaSpace（元数据区）替代了。而且，默认缓存大小也在不断地扩大中，从最初的 1009，到 7u40 以后被修改为 60013。</li>
-</ul>
-<h3 id="5-String不可变的好处"><a href="#5-String不可变的好处" class="headerlink" title="5.String不可变的好处"></a>5.String不可变的好处</h3><ul>
-<li><strong>5.1 可以缓存 hash 值</strong> <ul>
-<li>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性可以使得 hash 值也不可变，因此只需要进行一次计算。</li>
+        <h3 id="内部类概述和访问特点"><a href="#内部类概述和访问特点" class="headerlink" title="内部类概述和访问特点"></a>内部类概述和访问特点</h3><ul>
+<li>A:内部类概述:   <ul>
+<li>把类定义在其他类的内部，这个类就被称为内部类。</li>
+<li>举例：在类A中定义了一个类B，类B就是内部类。</li>
 </ul>
 </li>
-<li><strong>5.2 String Pool 的需要</strong> <ul>
-<li>如果一个String对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。</li>
+<li>B:内部类访问特点<ul>
+<li>a:内部类可以直接访问外部类的成员，包括私有。</li>
+<li>b:外部类要访问内部类的成员，必须创建对象。</li>
 </ul>
 </li>
-<li><strong>5.3 安全性</strong> <ul>
-<li>String 经常作为参数，String 不可变性可以保证参数不可变。例如在作为网络连接参数的情况下如果 String 是可变的，那么在网络连接过程中，String 被改变，改变 String 对象的那一方以为现在连接的是其它主机，而实际情况却不一定是。</li>
+</ul>
+<h4 id="内部类分类及成员内部类的直接使用"><a href="#内部类分类及成员内部类的直接使用" class="headerlink" title="内部类分类及成员内部类的直接使用"></a>内部类分类及成员内部类的直接使用</h4><ul>
+<li>A:按照内部类位置分类<ul>
+<li>成员位置:在成员位置定义的类，被称为成员内部类。   </li>
+<li>局部位置:在局部位置定义的类，被称为局部内部类。</li>
 </ul>
 </li>
-<li><strong>5.4 线程安全</strong> <ul>
-<li>String 不可变性天生具备线程安全，可以在多个线程中安全地使用。</li>
+<li>B:成员内部类<ul>
+<li>如何在测试类中直接访问内部类的成员。</li>
+<li>格式:     外部类名.内部类名 对象名 = 外部类对象.内部类对象;</li>
+</ul>
+</li>
+</ul>
+<h4 id="成员内部类的常见修饰符及应用"><a href="#成员内部类的常见修饰符及应用" class="headerlink" title="成员内部类的常见修饰符及应用"></a>成员内部类的常见修饰符及应用</h4><ul>
+<li>A:成员内部类的修饰符：<ul>
+<li>private     为了保证数据的安全性</li>
+<li>static         为了方便访问数据</li>
+<li>注意事项: <ul>
+<li>a:静态内部类访问的外部类数据必须用静态修饰。</li>
+<li>b: 成员方法可以是静态的也可以是非静态的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>B:成员内部类被静态修饰后的访问方式是:<pre><code>* 格式:    外部类名.内部类名 对象名 = new 外部类名.内部类名();
+</code></pre></li>
+</ul>
+<h4 id="局部内部类访问局部变量的问题"><a href="#局部内部类访问局部变量的问题" class="headerlink" title="局部内部类访问局部变量的问题"></a>局部内部类访问局部变量的问题</h4><ul>
+<li>A: 可以直接访问外部类的成员</li>
+<li>B: 可以创建内部类对象，通过对象调用内部类方法，来使用局部内部类功能</li>
+<li>C:局部内部类访问局部变量必须用final修饰<ul>
+<li>为什么呢?<ul>
+<li>因为局部变量会随着方法的调用完毕而消失，这个时候，局部对象并没有立马从堆内存中消失，还要使用那个变量。 为了让数据还能继续被使用，就用fianl修饰，这样，在堆内存里面存储的其实是一个常量值。</li>
+<li>当我们添加了final其实就是延长了生命周期 , 其实就是一个常量 , 常量在常量池中 , 在方法区中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><h4 id="匿名内部类的格式和理解"><a href="#匿名内部类的格式和理解" class="headerlink" title="匿名内部类的格式和理解"></a>匿名内部类的格式和理解</h4><ul>
+<li>A:匿名内部类:    就是局部内部类的简化写法。</li>
+<li>B:前提：            存在一个类或者接口;这里的类可以是具体类也可以是抽象类。</li>
+<li>C:格式：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new 类名或者接口名()&#123;</span><br><span class="line">     重写方法;</span><br><span class="line">&#125; ;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="本质是什么呢"><a href="#本质是什么呢" class="headerlink" title="本质是什么呢?"></a>本质是什么呢?</h4><ul>
+<li>是一个继承了该类或者实现了该接口的子类匿名对象。</li>
+<li>匿名内部类的面试题<ul>
+<li>A:面试题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">按照要求，补齐代码</span><br><span class="line">interface Inter &#123; void show(); &#125;</span><br><span class="line">class Outer &#123; //补齐代码 &#125;</span><br><span class="line">class OuterDemo &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        Outer.method().show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">要求在控制台输出”HelloWorld”</span><br><span class="line"></span><br><span class="line">- 答案</span><br><span class="line">//补齐代码</span><br><span class="line">public static Inter method() &#123;</span><br><span class="line">    //匿名内部类</span><br><span class="line">    return new Inter() &#123;</span><br><span class="line">        public void show()&#123;</span><br><span class="line">            System.out.println(&quot;HelloWorld&quot;) ;</span><br><span class="line">        &#125; ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="包的定义及package"><a href="#包的定义及package" class="headerlink" title="包的定义及package"></a>包的定义及package</h3><h4 id="package关键字的概述及作用"><a href="#package关键字的概述及作用" class="headerlink" title="package关键字的概述及作用"></a>package关键字的概述及作用</h4><ul>
+<li>A:包的概述:    就是文件夹</li>
+<li>B:包的作用:    用来解决同一个路径下不能存在同名文件的问题(分类管理)</li>
+<li>C:包的划分:    按照功能,按照模块</li>
+</ul>
+<h4 id="包的定义及注意事项"><a href="#包的定义及注意事项" class="headerlink" title="包的定义及注意事项"></a>包的定义及注意事项</h4><ul>
+<li>A:定义包的格式<ul>
+<li>package 包名;</li>
+<li>多级包用.分开即可</li>
+</ul>
+</li>
+<li>B:定义包的注意事项<ul>
+<li>A:package语句必须是程序的第一条可执行的代码</li>
+<li>B:package语句在一个java文件中只能有一个</li>
+<li>C:如果没有package，默认表示无包名</li>
+</ul>
+</li>
+</ul>
+<h3 id="import关键字的概述和使用"><a href="#import关键字的概述和使用" class="headerlink" title="import关键字的概述和使用"></a>import关键字的概述和使用</h3><h4 id="A-导包的概述"><a href="#A-导包的概述" class="headerlink" title="A:导包的概述"></a>A:导包的概述</h4><ul>
+<li>不同包下的类之间的访问，我们发现，每次使用不同包下的类的时候，都需要加包的全路径。比较麻烦。这个时候，java就提供了导包的功能</li>
+</ul>
+<h4 id="B-导包格式"><a href="#B-导包格式" class="headerlink" title="B:导包格式"></a>B:导包格式</h4><ul>
+<li>import 包名;</li>
+<li>注意：</li>
+<li>这种方式导入是到类的名称。</li>
+<li>虽然可以最后写*，但是不建议。</li>
+</ul>
+<h3 id="四种权限修饰符的测试"><a href="#四种权限修饰符的测试" class="headerlink" title="四种权限修饰符的测试"></a>四种权限修饰符的测试</h3><ul>
+<li>修饰符<ul>
+<li>四种权限修饰符: private(私有的)  , 默认 , protected(受保护的) , public(公共的)</li>
+</ul>
+</li>
+<li>结论<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*            本类   同一个包下  不同包下(子类) 不同包下(无关类)</span><br><span class="line">* private      Y       </span><br><span class="line">* 默认         Y       Y</span><br><span class="line">* protected    Y       Y          Y</span><br><span class="line">* public       Y       Y          Y           Y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="类及其组成所使用的常见修饰符"><a href="#类及其组成所使用的常见修饰符" class="headerlink" title="类及其组成所使用的常见修饰符"></a>类及其组成所使用的常见修饰符</h3><ul>
+<li><strong>A:修饰符：</strong><ul>
+<li>权限修饰符：private，默认的，protected，public</li>
+<li>状态修饰符：static，final</li>
+<li>抽象修饰符：abstract</li>
+</ul>
+</li>
+<li><strong>B:类：</strong><ul>
+<li>权限修饰符：默认修饰符，public</li>
+<li>状态修饰符：final</li>
+<li>抽象修饰符：abstract</li>
+<li>用的最多的就是：public</li>
+</ul>
+</li>
+<li><strong>C:成员变量：</strong><ul>
+<li>权限修饰符：private，默认的，protected，public</li>
+<li>状态修饰符：static，final</li>
+<li>用的最多的就是：private</li>
+</ul>
+</li>
+<li><strong>D:构造方法：</strong><ul>
+<li>权限修饰符：private，默认的，protected，public</li>
+<li>用的最多的就是：public</li>
+</ul>
+</li>
+<li><strong>E:成员方法：</strong><ul>
+<li>权限修饰符：private，默认的，protected，public</li>
+<li>状态修饰符：static，final</li>
+<li>抽象修饰符：abstract</li>
+<li>用的最多的就是：public</li>
+</ul>
+</li>
+<li><strong>F:除此以外的组合规则：</strong><ul>
+<li>成员变量： public static final</li>
+<li>成员方法： public static / public abstract  /  public final</li>
 </ul>
 </li>
 </ul>
@@ -575,7 +666,9 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/String/" rel="tag"><i class="fa fa-tag"></i> String</a>
+            <a href="/tags/class/" rel="tag"><i class="fa fa-tag"></i> class</a>
+          
+            <a href="/tags/package/" rel="tag"><i class="fa fa-tag"></i> package</a>
           
         </div>
       
@@ -588,8 +681,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/21/java常见API方法/" rel="next" title="java常见API方法">
-                <i class="fa fa-chevron-left"></i> java常见API方法
+              <a href="/2019/02/22/java抽象类和接口/" rel="next" title="java抽象类和接口">
+                <i class="fa fa-chevron-left"></i> java抽象类和接口
               </a>
             
           </div>
@@ -597,10 +690,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/21/java中int和Integer分析/" rel="prev" title="java中int和Integer分析">
-                java中int和Integer分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -754,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-String的创建机理"><span class="nav-number">1.</span> <span class="nav-text">1.String的创建机理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-StringBuffer-StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">2.StringBuffer/StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-String类的考点分析"><span class="nav-number">3.</span> <span class="nav-text">3.String类的考点分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-String技术点深入分析"><span class="nav-number">4.</span> <span class="nav-text">4.String技术点深入分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-String类是典型的Immutable类"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 String类是典型的Immutable类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-字符串设计和实现考量"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 字符串设计和实现考量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-字符串缓存"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 字符串缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-String不可变的好处"><span class="nav-number">5.</span> <span class="nav-text">5.String不可变的好处</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类概述和访问特点"><span class="nav-number">1.</span> <span class="nav-text">内部类概述和访问特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类分类及成员内部类的直接使用"><span class="nav-number">1.1.</span> <span class="nav-text">内部类分类及成员内部类的直接使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成员内部类的常见修饰符及应用"><span class="nav-number">1.2.</span> <span class="nav-text">成员内部类的常见修饰符及应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部内部类访问局部变量的问题"><span class="nav-number">1.3.</span> <span class="nav-text">局部内部类访问局部变量的问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类"><span class="nav-number">2.</span> <span class="nav-text">匿名内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名内部类的格式和理解"><span class="nav-number">2.1.</span> <span class="nav-text">匿名内部类的格式和理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本质是什么呢"><span class="nav-number">2.2.</span> <span class="nav-text">本质是什么呢?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包的定义及package"><span class="nav-number">3.</span> <span class="nav-text">包的定义及package</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#package关键字的概述及作用"><span class="nav-number">3.1.</span> <span class="nav-text">package关键字的概述及作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包的定义及注意事项"><span class="nav-number">3.2.</span> <span class="nav-text">包的定义及注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import关键字的概述和使用"><span class="nav-number">4.</span> <span class="nav-text">import关键字的概述和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-导包的概述"><span class="nav-number">4.1.</span> <span class="nav-text">A:导包的概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-导包格式"><span class="nav-number">4.2.</span> <span class="nav-text">B:导包格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种权限修饰符的测试"><span class="nav-number">5.</span> <span class="nav-text">四种权限修饰符的测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类及其组成所使用的常见修饰符"><span class="nav-number">6.</span> <span class="nav-text">类及其组成所使用的常见修饰符</span></a></li></ol></div>
             
 
           </div>
@@ -938,9 +1027,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://Cool-Loong.github.io/2019/02/21/java的String类/';
-          this.page.identifier = '2019/02/21/java的String类/';
-          this.page.title = 'java的String类';
+          this.page.url = 'https://Cool-Loong.github.io/2019/02/22/java匿名内部类和其他/';
+          this.page.identifier = '2019/02/22/java匿名内部类和其他/';
+          this.page.title = 'java匿名内部类和其他';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-cool-loong-github-io.disqus.com/embed.js';

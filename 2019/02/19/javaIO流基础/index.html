@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="IO流基础知识目录介绍 1.IO的概述 1.1 IO流概述及其前奏   2.IO流整体介绍 3.File文件类 3.1 File类的概述和方法介绍【掌握】   4.递归 4.1 递归概述和注意事项   5.IO流 5.1 IO流概述及其分类【掌握】 5.2 输入流和输出流分类 5.3 IO流基类概述和FileOutputStream的构造方法【掌握】 5.4 FileOutputStream【掌握">
+<meta name="description" content="1.IO的概述 1.1 IO流概述及其前奏 A:IO流概述 IO流用来处理设备之间的数据传输 上传文件和下载文件   B:IO流前奏 讲解IO流之前为什么先讲解异常和File类呢? 因为File表示的是IO流将来要操作的文件，所以我们需要学习File类。 而常见操作文件无非就是上传文件和下载文件，在这个操作的过程中可能出现问题， 出现问题后，我们需要对对应的代码进行处理。所以我们需要学习异常。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IO流">
+<meta property="og:title" content="javaIO流基础">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/02/19/javaIO流基础/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="IO流基础知识目录介绍 1.IO的概述 1.1 IO流概述及其前奏   2.IO流整体介绍 3.File文件类 3.1 File类的概述和方法介绍【掌握】   4.递归 4.1 递归概述和注意事项   5.IO流 5.1 IO流概述及其分类【掌握】 5.2 输入流和输出流分类 5.3 IO流基类概述和FileOutputStream的构造方法【掌握】 5.4 FileOutputStream【掌握">
+<meta property="og:description" content="1.IO的概述 1.1 IO流概述及其前奏 A:IO流概述 IO流用来处理设备之间的数据传输 上传文件和下载文件   B:IO流前奏 讲解IO流之前为什么先讲解异常和File类呢? 因为File表示的是IO流将来要操作的文件，所以我们需要学习File类。 而常见操作文件无非就是上传文件和下载文件，在这个操作的过程中可能出现问题， 出现问题后，我们需要对对应的代码进行处理。所以我们需要学习异常。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-19T07:18:33.899Z">
+<meta property="og:updated_time" content="2019-02-22T07:28:10.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IO流">
-<meta name="twitter:description" content="IO流基础知识目录介绍 1.IO的概述 1.1 IO流概述及其前奏   2.IO流整体介绍 3.File文件类 3.1 File类的概述和方法介绍【掌握】   4.递归 4.1 递归概述和注意事项   5.IO流 5.1 IO流概述及其分类【掌握】 5.2 输入流和输出流分类 5.3 IO流基类概述和FileOutputStream的构造方法【掌握】 5.4 FileOutputStream【掌握">
+<meta name="twitter:title" content="javaIO流基础">
+<meta name="twitter:description" content="1.IO的概述 1.1 IO流概述及其前奏 A:IO流概述 IO流用来处理设备之间的数据传输 上传文件和下载文件   B:IO流前奏 讲解IO流之前为什么先讲解异常和File类呢? 因为File表示的是IO流将来要操作的文件，所以我们需要学习File类。 而常见操作文件无非就是上传文件和下载文件，在这个操作的过程中可能出现问题， 出现问题后，我们需要对对应的代码进行处理。所以我们需要学习异常。">
 
 
 
@@ -170,7 +170,7 @@
 
 
 
-  <title>IO流 | Dragon's Blog</title>
+  <title>javaIO流基础 | Dragon's Blog</title>
   
 
 
@@ -366,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">IO流</h1>
+          <h1 class="post-title" itemprop="name headline">javaIO流基础</h1>
         
 
         <div class="post-meta">
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-19T15:18:33+08:00">
-                2019-02-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T15:28:10+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -440,7 +440,7 @@
 
           
           
-             <span id="/2019/02/19/javaIO流基础/" class="leancloud_visitors" data-flag-title="IO流">
+             <span id="/2019/02/19/javaIO流基础/" class="leancloud_visitors" data-flag-title="javaIO流基础">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -471,51 +471,7 @@
       
 
       
-        <h4 id="IO流基础知识"><a href="#IO流基础知识" class="headerlink" title="IO流基础知识"></a>IO流基础知识</h4><h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><ul>
-<li>1.IO的概述<ul>
-<li>1.1 IO流概述及其前奏</li>
-</ul>
-</li>
-<li>2.IO流整体介绍</li>
-<li>3.File文件类<ul>
-<li>3.1 File类的概述和方法介绍【掌握】</li>
-</ul>
-</li>
-<li>4.递归<ul>
-<li>4.1 递归概述和注意事项</li>
-</ul>
-</li>
-<li>5.IO流<ul>
-<li>5.1 IO流概述及其分类【掌握】</li>
-<li>5.2 输入流和输出流分类</li>
-<li>5.3 IO流基类概述和FileOutputStream的构造方法【掌握】</li>
-<li>5.4 FileOutputStream【掌握】</li>
-<li>5.5 FileInputStream【掌握】</li>
-</ul>
-</li>
-<li>6.IO流案例<ul>
-<li>6.1 字节流复制文本文件【字节流一次读写一个字节复制文本文件】</li>
-<li>6.2 字节流复制MP3【字节流一次读写一个字节复制MP3】</li>
-<li>6.3 FileInputStream读取数据一次一个字节数组【】</li>
-<li>6.4 FileInputStream读取数据的两种方式比较</li>
-<li>6.5 字节流复制文本文件【字节流一次读写一个字节数组复制文本文件】</li>
-<li>6.6 字节流复制MP3【字节流一次读写一个字节数组复制MP3】</li>
-</ul>
-</li>
-<li>7.Buffer缓冲数据流<ul>
-<li>7.1 BufferedOutputStream写出数据</li>
-<li>7.2 BufferedInputStream读取数据</li>
-<li>7.3 字节流四种方式复制MP3并测试效率<ul>
-<li>基本字节流一次读写一个字节</li>
-<li>基本字节流一次读写一个字节数组</li>
-<li>高效字节流一次读写一个字节</li>
-<li>高效字节流一次读写一个字节数组</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-IO的概述"><a href="#1-IO的概述" class="headerlink" title="1.IO的概述"></a>1.IO的概述</h3><ul>
+        <h3 id="1-IO的概述"><a href="#1-IO的概述" class="headerlink" title="1.IO的概述"></a>1.IO的概述</h3><ul>
 <li>1.1 IO流概述及其前奏<ul>
 <li>A:IO流概述<ul>
 <li>IO流用来处理设备之间的数据传输</li>
@@ -789,8 +745,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/17/java运算符and语句/" rel="next" title=" 运算符and语句">
-                <i class="fa fa-chevron-left"></i>  运算符and语句
+              <a href="/2019/01/17/java运算符and语句/" rel="next" title=" java运算符and语句">
+                <i class="fa fa-chevron-left"></i>  java运算符and语句
               </a>
             
           </div>
@@ -799,8 +755,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/19/javaIO流注意事项/" rel="prev" title="IO流注意事项">
-                IO流注意事项 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/19/javaIO流注意事项/" rel="prev" title="javaIO流注意事项">
+                javaIO流注意事项 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -890,7 +846,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -912,7 +868,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -955,7 +911,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#IO流基础知识"><span class="nav-number">1.</span> <span class="nav-text">IO流基础知识</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#目录介绍"><span class="nav-number"></span> <span class="nav-text">目录介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-IO的概述"><span class="nav-number"></span> <span class="nav-text">1.IO的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IO流整体介绍"><span class="nav-number"></span> <span class="nav-text">2.IO流整体介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-File文件类"><span class="nav-number"></span> <span class="nav-text">3.File文件类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-递归"><span class="nav-number"></span> <span class="nav-text">4.递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-IO流"><span class="nav-number"></span> <span class="nav-text">5.IO流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-IO流案例"><span class="nav-number"></span> <span class="nav-text">6.IO流案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-字节流复制文本文件【字节流一次读写一个字节复制文本文件】"><span class="nav-number">1.</span> <span class="nav-text">6.1 字节流复制文本文件【字节流一次读写一个字节复制文本文件】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-字节流复制MP3【字节流一次读写一个字节复制MP3】"><span class="nav-number">2.</span> <span class="nav-text">6.2 字节流复制MP3【字节流一次读写一个字节复制MP3】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-FileInputStream读取数据一次一个字节数组"><span class="nav-number">3.</span> <span class="nav-text">6.3 FileInputStream读取数据一次一个字节数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-FileInputStream读取数据的两种方式比较"><span class="nav-number">4.</span> <span class="nav-text">6.4 FileInputStream读取数据的两种方式比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-字节流复制文本文件【字节流一次读写一个字节数组复制文本文件】"><span class="nav-number">5.</span> <span class="nav-text">6.5 字节流复制文本文件【字节流一次读写一个字节数组复制文本文件】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-字节流复制MP3【字节流一次读写一个字节数组复制MP3】"><span class="nav-number">6.</span> <span class="nav-text">6.6 字节流复制MP3【字节流一次读写一个字节数组复制MP3】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Buffer缓冲数据流"><span class="nav-number"></span> <span class="nav-text">7.Buffer缓冲数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-BufferedOutputStream写出数据"><span class="nav-number">1.</span> <span class="nav-text">7.1 BufferedOutputStream写出数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-BufferedInputStream读取数据"><span class="nav-number">2.</span> <span class="nav-text">7.2 BufferedInputStream读取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-字节流四种方式复制MP3并测试效率"><span class="nav-number">3.</span> <span class="nav-text">7.3 字节流四种方式复制MP3并测试效率</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-IO的概述"><span class="nav-number">1.</span> <span class="nav-text">1.IO的概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IO流整体介绍"><span class="nav-number">2.</span> <span class="nav-text">2.IO流整体介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-File文件类"><span class="nav-number">3.</span> <span class="nav-text">3.File文件类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-递归"><span class="nav-number">4.</span> <span class="nav-text">4.递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-IO流"><span class="nav-number">5.</span> <span class="nav-text">5.IO流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-IO流案例"><span class="nav-number">6.</span> <span class="nav-text">6.IO流案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-字节流复制文本文件【字节流一次读写一个字节复制文本文件】"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 字节流复制文本文件【字节流一次读写一个字节复制文本文件】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-字节流复制MP3【字节流一次读写一个字节复制MP3】"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 字节流复制MP3【字节流一次读写一个字节复制MP3】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-FileInputStream读取数据一次一个字节数组"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 FileInputStream读取数据一次一个字节数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-FileInputStream读取数据的两种方式比较"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 FileInputStream读取数据的两种方式比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-字节流复制文本文件【字节流一次读写一个字节数组复制文本文件】"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 字节流复制文本文件【字节流一次读写一个字节数组复制文本文件】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-字节流复制MP3【字节流一次读写一个字节数组复制MP3】"><span class="nav-number">6.6.</span> <span class="nav-text">6.6 字节流复制MP3【字节流一次读写一个字节数组复制MP3】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Buffer缓冲数据流"><span class="nav-number">7.</span> <span class="nav-text">7.Buffer缓冲数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-BufferedOutputStream写出数据"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 BufferedOutputStream写出数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-BufferedInputStream读取数据"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 BufferedInputStream读取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-字节流四种方式复制MP3并测试效率"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 字节流四种方式复制MP3并测试效率</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1141,7 +1097,7 @@
         var disqus_config = function () {
           this.page.url = 'https://Cool-Loong.github.io/2019/02/19/javaIO流基础/';
           this.page.identifier = '2019/02/19/javaIO流基础/';
-          this.page.title = 'IO流';
+          this.page.title = 'javaIO流基础';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-cool-loong-github-io.disqus.com/embed.js';
