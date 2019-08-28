@@ -157,7 +157,7 @@
 <meta property="og:site_name" content="Dragon&#39;s Blog">
 <meta property="og:description" content="MySQL数据库概述数据库存储方式 人工存储 文件系统阶段 数据库系统阶段    数据库SQL语言 SQL(Structured Query Language) 结构化查询语言，数据库管理系统通过SQL语言来管理数据库中的数据   SQL语言分为三个部分:   DDL 数据定义语言(definition)  create table DMl 数据操作语言(manipulation)  select">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T06:33:10.066Z">
+<meta property="og:updated_time" content="2019-08-28T07:27:32.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识mysql">
 <meta name="twitter:description" content="MySQL数据库概述数据库存储方式 人工存储 文件系统阶段 数据库系统阶段    数据库SQL语言 SQL(Structured Query Language) 结构化查询语言，数据库管理系统通过SQL语言来管理数据库中的数据   SQL语言分为三个部分:   DDL 数据定义语言(definition)  create table DMl 数据操作语言(manipulation)  select">
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-27T14:33:10+08:00">
-                2019-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-28T15:27:32+08:00">
+                2019-08-28
               </time>
             
           </span>
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  2.3k
                 </span>
               
 
@@ -639,7 +639,12 @@ limit 限制查询的个数(分页)
 <li>查询所有列  <pre><code>select * from 表名
 </code></pre></li>
 <li>查询指定字段<br>  select 列名1，列名2  from 表名</li>
-<li>查询指定记录<br>  where 条件表达式<br>  =,&gt;,&lt;,!组合查询<br>  [not] between and （不）在…之间<br>  [not] in 在… 里面<br>  [not] like  %(匹配零个或多个) _(匹配一个)<br>  is [not] null<br>  and ,or    条件查询<br>  select distinct 属性名    去除重复<br>  order by 属性名 [asc|desc]    排序<br>  GROUP BY, GROUP_CONTACT()凼数非常好用<br>  SELECT sex, GROUP_CONTACT(name) FROM employee GROUP BY sex;<br>  GROUP BY不WITH ROLLUP一起使用，多一行，加统计<br>  SELECT sex COUNT(sex) FROM employee GROUP BY sex WITH ROLLUP;<br>  LIMIT [刜始位置,] 记录数 <h3 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h3>  count (),avg(),max(),min(),sum()<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3></li>
+<li>查询指定记录<br>  where 条件表达式<br>  =,&gt;,&lt;,!组合查询<br>  [not] between and （不）在…之间<br>  [not] in 在… 里面<br>  [not] like  %(匹配零个或多个) _(匹配一个)<br>  is [not] null<br>  and ,or    条件查询<br>  select distinct 属性名    去除重复<br>  order by 属性名 [asc|desc]    排序<br>  GROUP BY, GROUP_CONTACT()凼数非常好用<br>  SELECT sex, GROUP_CONTACT(name) FROM employee GROUP BY sex;<br>  GROUP BY不WITH ROLLUP一起使用，多一行，加统计<br>  SELECT sex COUNT(sex) FROM employee GROUP BY sex WITH ROLLUP;<br>  LIMIT [刜始位置,] 记录数 </li>
+<li>mysql 中+的作用<br>  运算符<br>  如果两个操作数都为数值型，则做加法运算<br>  如果一方为字符串，将字符串转化为数值型  <ul>
+<li>如果转换成功，则继续做加法运算  </li>
+<li>如果转换失败，则将字符型数值转化为0<h3 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h3>count (),avg(),max(),min(),sum()<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3></li>
+</ul>
+</li>
 <li>内连接<br>  select a.<em>,b.</em> from a,b where a.xid = b.id<br>  或者 select a.<em>,b.</em> from a inner  join b on a.xid = b.xid</li>
 <li>外连接<br>  select 属性名列表 from 表名1 left|right join 表名2 on 表名1.属性1 = 表名2.属性2;  <blockquote>
 <p>左外连接 left join  左表全记录，右表符合条件<br>  右外连接 right join 由表全记录 左表符合条件 </p>
@@ -666,12 +671,12 @@ limit 限制查询的个数(分页)
 </li>
 </ul>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
-<li>算术函数<br>  abs()  取绝对值<br>  mod()   取余<br>  sum()<br>  avg()<br>  max()<br>  min()<br>  round() 四舍五入为指定小数位数  <pre><code>需要有两个参数  
+<li>算术函数<br>  abs()  取绝对值<br>  mod()   取余<br>  sum()<br>  avg()<br>  max()<br>  min()<br>  ceil()  向上取整<br>  floor() 向下取整<br>  truncate() 截取多少位数字<br>  round() 四舍五入为指定小数位数  <pre><code>需要有两个参数  
     * 字段名称  
     * 小数位数
 </code></pre></li>
-<li>字符串函数<br>  concat()   字符串拼接<br>  length()    字段长度   汉字三个字符<br>  char_length() 字段长度 汉字一个字符<br>  lower() 将字符串中的字符转化为小写<br>  upper() 将字符串中的字符转化位大写<br>  replace(字段名，需要替换的字符串，替换字符串对象)   替换函数<br>  substring(字段名，开始位置，长度) 截取字符串</li>
-<li>日期函数<br>  current_date()  系统当前时间 YYYY：MM:DD<br>  current_time() 系统当前时间 hh:mm:ss<br>  current_timestamp() 系统当前时间<br>  extract() 年月日<br>  date() 日期<br>  year() 年份<br>  month() 月份<br>  day()  天数<br>  hour()  小时<br>  minute() 分钟<br>  second() 秒  </li>
+<li>字符串函数<br>  concat()   字符串拼接<br>  length()    字段长度   汉字三个字符<br>  char_length() 字段长度 汉字一个字符<br>  lower() 将字符串中的字符转化为小写<br>  upper() 将字符串中的字符转化位大写<br>  replace(字段名，需要替换的字符串，替换字符串对象)   替换函数<br>  substr(字段名，开始位置，长度) 截取字符串<br>  instr() 获取指定字符串的下标<br>  注意：mysql中下标从1开始  </li>
+<li>日期函数<br>  now()系统现在的时间<br>  current_date()  系统当前时间 YYYY：MM:DD<br>  current_time() 系统当前时间 hh:mm:ss<br>  current_timestamp() 系统当前时间<br>  extract() 年月日<br>  date() 日期<br>  year() 年份<br>  month() 月份<br>  day()  天数<br>  hour()  小时<br>  minute() 分钟<br>  second() 秒  </li>
 <li>条件判断函数<br>  if(expr ,v1,v2)<br>  ifnull(v1,v2)<br>  如果不是NULL，则返回第一个参数。 否则，IFNULL函数返回第二个参数。</li>
 </ul>
 
@@ -972,7 +977,7 @@ limit 限制查询的个数(分页)
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.3k</span>
+    <span title="Site words total count">52.4k</span>
   
 </div>
 
