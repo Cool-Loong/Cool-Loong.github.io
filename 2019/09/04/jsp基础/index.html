@@ -149,18 +149,18 @@
 
 
 
-<meta name="description" content="jspjsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;会被翻译成service的out.print(“内容”）  jsp注释   jsp 可见范围     &amp;lt;!–ht">
+<meta name="description" content="jspjava Server Page jsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 定义局部变量，定义语句 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 表达式输出，向页面输出内容 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;定义常量会被翻译成service">
 <meta name="keywords" content="java,jsp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jsp基础">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/09/04/jsp基础/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="jspjsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;会被翻译成service的out.print(“内容”）  jsp注释   jsp 可见范围     &amp;lt;!–ht">
+<meta property="og:description" content="jspjava Server Page jsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 定义局部变量，定义语句 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 表达式输出，向页面输出内容 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;定义常量会被翻译成service">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T02:26:57.715Z">
+<meta property="og:updated_time" content="2019-09-04T11:38:58.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp基础">
-<meta name="twitter:description" content="jspjsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;会被翻译成service的out.print(“内容”）  jsp注释   jsp 可见范围     &amp;lt;!–ht">
+<meta name="twitter:description" content="jspjava Server Page jsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 定义局部变量，定义语句 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 表达式输出，向页面输出内容 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;定义常量会被翻译成service">
 
 
 
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T10:26:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T19:38:58+08:00">
                 2019-09-04
               </time>
             
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  681
+                  730
                 </span>
               
 
@@ -527,11 +527,12 @@
       
 
       
-        <h1 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h1><pre><code>jsp本质就是servlet   
+        <h1 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h1><pre><code>java Server Page
+jsp本质就是servlet   
 </code></pre><h1 id="jsp脚本"><a href="#jsp脚本" class="headerlink" title="jsp脚本"></a>jsp脚本</h1><ol>
-<li>&lt;%java代码%&gt;<br> 被翻译到service方法内部   </li>
-<li>&lt;%=java变量 或表达式%&gt;<br> 相当于 out.print(“内容”)  会被翻译成service方法内部</li>
-<li>&lt;%！java代码%&gt;<br>会被翻译成service的out.print(“内容”）</li>
+<li>&lt;%java代码%&gt;<br> 定义局部变量，定义语句<br> 被翻译到service方法内部   </li>
+<li>&lt;%=java变量 或表达式%&gt;<br> 表达式输出，向页面输出内容<br> 相当于 out.print(“内容”)  会被翻译成service方法内部</li>
+<li>&lt;%！java代码%&gt;<br>定义常量<br>会被翻译成service的out.print(“内容”）</li>
 </ol>
 <h1 id="jsp注释"><a href="#jsp注释" class="headerlink" title="jsp注释"></a>jsp注释</h1><table>
 <thead>
@@ -566,7 +567,7 @@
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page 属性一：&quot;属性值一&quot; 属性二：&quot;属性值二&quot; 属性三：&quot;属性值三&quot;%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%</span><br></pre></td></tr></table></figure>
 <ol>
 <li>language<br>jsp脚本可以嵌入的语言种类</li>
-<li>contentType<br>response.setContentType(“text/html”;charset=UTF-8)</li>
+<li>contentType（MIME类型）<br>response.setContentType(“text/html”;charset=UTF-8)</li>
 <li>charset<br> 编码格式</li>
 <li>pageEncoding<br>jsp文件的编码</li>
 <li>import<br>导入java包 </li>
@@ -592,13 +593,13 @@
 <li>request<br> 请求</li>
 <li>response<br> 响应  </li>
 <li>Config<br> 配置信息</li>
-<li>session<br> 一次会话</li>
-<li>application<br> 整个web应用</li>
+<li>session<br> 一次会话，用来保存用户的信息</li>
+<li>application<br> 整个web应用，所有用户的共享信息</li>
 <li>page<br> 当前jsp页面范围</li>
 <li><p>pageContext<br> 页面上下文对象</p>
 <ul>
 <li><p>page对象和pageContext对象不是同一回事<br>  setAttribute(String name ,Object obj)<br>  getAttribute(String name)<br>  removeAttribute(String name)  </p>
-<p>  pageContext可以向指定其他域中存取数据<br>  setAttribute(String name,Object obj,int scope)   scope代表范围（其他的域）<br>  getAttribute(String name,int scope)<br>  removeAttribute(String name,int scope)<br>  findAttribute(String name)  找到</p>
+<p>  pageContext可以向指定其他域中存取数据<br>  setAttribute(String name,Object obj,int scope)   scope代表范围（其他的域）<br>  getAttribute(String name,int scope)<br>  removeAttribute(String name)<br>  findAttribute(String name)  找到</p>
 <blockquote>
 <p>从小到大搜索域的范围中的name<br>  域对象包括：<br>  pageContext域&lt;request域&lt;session域&lt;application域 </p>
 </blockquote>
@@ -945,7 +946,7 @@ pageContext.getResponse()
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">59.1k</span>
+    <span title="Site words total count">60k</span>
   
 </div>
 
