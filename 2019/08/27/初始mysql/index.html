@@ -157,7 +157,7 @@
 <meta property="og:site_name" content="Dragon&#39;s Blog">
 <meta property="og:description" content="MySQL数据库概述数据库存储方式 人工存储 文件系统阶段 数据库系统阶段    数据库SQL语言 SQL(Structured Query Language) 结构化查询语言，数据库管理系统通过SQL语言来管理数据库中的数据   SQL语言分为三个部分:   DDL 数据定义语言(definition)  create table DMl 数据操作语言(manipulation)  select">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T16:49:57.094Z">
+<meta property="og:updated_time" content="2019-09-04T03:03:39.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识mysql">
 <meta name="twitter:description" content="MySQL数据库概述数据库存储方式 人工存储 文件系统阶段 数据库系统阶段    数据库SQL语言 SQL(Structured Query Language) 结构化查询语言，数据库管理系统通过SQL语言来管理数据库中的数据   SQL语言分为三个部分:   DDL 数据定义语言(definition)  create table DMl 数据操作语言(manipulation)  select">
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T00:49:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T11:03:39+08:00">
                 2019-09-04
               </time>
             
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.9k
+                  5.7k
                 </span>
               
 
@@ -685,7 +685,152 @@ limit 限制查询的个数(分页)
 <li>条件判断函数<br>  if(expr ,v1,v2)<br>  ifnull(v1,v2)<br>  如果不是NULL，则返回第一个参数。 否则，IFNULL函数返回第二个参数。</li>
 <li>统计函数<br>  count()计数<br>  sum()总和<br>  max()最大值<br>  min()最小值<br>  avg()平均值  </li>
 </ul>
-<h2 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h2><h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><pre><code>变量由系统定义，不是用户定义，属于服务器层面
+<h2 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h2><blockquote>
+<p>Transaction Control Language 事务控制语言<br>事务：<br>一个或一组sql语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。</p>
+<ul>
+<li>事务的特性：<br>  <em>ACID</em></li>
+</ul>
+<ol>
+<li>原子性：<br> 一个事务不可再分割，要么都执行要么都不执行</li>
+<li>一致性：<br> 一个事务执行会使数据从一个一致状态切换到另外一个一致状态</li>
+<li>隔离性：<br> 一个事务的执行不受其他事务的干扰</li>
+<li>持久性：<br> 一个事务一旦提交，则会永久的改变数据库的数据.</li>
+</ol>
+</blockquote>
+<h3 id="事务的创建"><a href="#事务的创建" class="headerlink" title="事务的创建"></a>事务的创建</h3><h4 id="隐式事务"><a href="#隐式事务" class="headerlink" title="隐式事务"></a>隐式事务</h4><p>事务没有明显的开启和结束的标记<br>比如insert、update、delete语句<br>delete from 表 where id =1;  </p>
+<h4 id="显式事务："><a href="#显式事务：" class="headerlink" title="显式事务："></a>显式事务：</h4><p>事务具有明显的开启和结束的标记<br>前提：必须先设置自动提交功能为禁用<br>set autocommit=0;  </p>
+<ol>
+<li>开启事务<br>set autocommit=0;<br>start transaction;可选的  </li>
+<li><p>编写事务中的sql语句(select insert update delete)<br>语句1;<br>语句2;<br>…  </p>
+</li>
+<li><p>结束事务<br> commit;提交事务<br> rollback;回滚事务<br> savepoint 节点名;设置保存点</p>
+</li>
+<li><p>事务的隔离级别：</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">事物</th>
+<th style="text-align:center">脏读</th>
+<th style="text-align:center">不可重复读</th>
+<th style="text-align:center">幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">read uncommitted</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">read committed</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">repeatable read</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">serializable</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+<td style="text-align:center">×</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>mysql中默认 第三个隔离级别 repeatable read<br>oracle中默认第二个隔离级别 read committed</p>
+<ul>
+<li>查看隔离级别<br>select @@tx_isolation;  </li>
+<li>设置隔离级别<br>set session|global transaction isolation level 隔离级别;  </li>
+</ul>
+</blockquote>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ol>
+<li><p>演示事务的使用步骤  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#开启事务</span><br><span class="line">SET autocommit=0;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">#编写一组事务的语句</span><br><span class="line">UPDATE account SET balance = 1000 WHERE username=&apos;张无忌&apos;;</span><br><span class="line">UPDATE account SET balance = 1000 WHERE username=&apos;赵敏&apos;;</span><br><span class="line"></span><br><span class="line">#结束事务</span><br><span class="line">ROLLBACK;</span><br><span class="line">#commit;</span><br><span class="line"></span><br><span class="line">SELECT * FROM account;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>演示事务对于delete和truncate的处理的区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SET autocommit=0;  </span><br><span class="line">START TRANSACTION;  </span><br><span class="line"></span><br><span class="line">DELETE FROM account;  </span><br><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>演示savepoint 的使用  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SET autocommit=0;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">DELETE FROM account WHERE id=25;</span><br><span class="line">SAVEPOINT a;#设置保存点</span><br><span class="line">DELETE FROM account WHERE id=28;</span><br><span class="line">ROLLBACK TO a;#回滚到保存点</span><br><span class="line"></span><br><span class="line">SELECT * FROM account;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>含义：虚拟表，和普通表一样使用<br>mysql5.1版本出现的新特性，是通过表动态生成的数据  </p>
+<p>比如：舞蹈班和普通班级的对比</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">区别</th>
+<th style="text-align:center">创建语法的关键字</th>
+<th style="text-align:center">是否实际占用物理空间</th>
+<th style="text-align:center">使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">视图</td>
+<td style="text-align:center">create view</td>
+<td style="text-align:center">只是保存了sql逻辑</td>
+<td style="text-align:center">增删改查，只是一般不能增删改</td>
+</tr>
+<tr>
+<td style="text-align:center">表</td>
+<td style="text-align:center">create table</td>
+<td style="text-align:center">保存了数据</td>
+<td style="text-align:center">增删改查</td>
+</tr>
+</tbody>
+</table>
+<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><pre><code>语法：
+create view 视图名
+as
+查询语句;
+</code></pre><ul>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">创建</span><br><span class="line">CREATE VIEW myv3</span><br><span class="line">AS</span><br><span class="line">SELECT * FROM myv2 ORDER BY ag LIMIT 1;</span><br><span class="line"></span><br><span class="line">使用</span><br><span class="line">SELECT d.*,m.ag</span><br><span class="line">FROM myv3 m</span><br><span class="line">JOIN departments d</span><br><span class="line">ON m.`department_id`=d.`department_id`;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="视图的修改"><a href="#视图的修改" class="headerlink" title="视图的修改"></a>视图的修改</h3><ol>
+<li>方式一:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create or replace view  视图名</span><br><span class="line">as</span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM myv3 </span><br><span class="line"></span><br><span class="line">CREATE OR REPLACE VIEW myv3</span><br><span class="line">AS</span><br><span class="line">SELECT AVG(salary),job_id</span><br><span class="line">FROM employees</span><br><span class="line">GROUP BY job_id;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>方式二  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">alter view 视图名</span><br><span class="line">as </span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER VIEW myv3</span><br><span class="line">AS</span><br><span class="line">SELECT * FROM employees;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><blockquote>
+<p>语法：drop view 视图名,视图名,…;<br>DROP VIEW emp_v1,emp_v2,myv3;</p>
+</blockquote>
+<h3 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h3><blockquote>
+<p>DESC myv3;<br>SHOW CREATE VIEW myv3;</p>
+</blockquote>
+<h3 id="视图的更新"><a href="#视图的更新" class="headerlink" title="视图的更新"></a>视图的更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW myv1</span><br><span class="line">AS</span><br><span class="line">SELECT last_name,email,salary*12*(1+IFNULL(commission_pct,0)) &quot;annual salary&quot;</span><br><span class="line">FROM employees;</span><br><span class="line"></span><br><span class="line">CREATE OR REPLACE VIEW myv1</span><br><span class="line">AS</span><br><span class="line">SELECT last_name,email</span><br><span class="line">FROM employees;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意<br>具备以下特点的视图不允许更新  </li>
+</ul>
+<ol>
+<li>包含以下关键字的sql语句：<br>分组函数、distinct、group  by、having、union或者union all</li>
+<li>常量视图</li>
+<li>select中包含子查询</li>
+<li>join</li>
+<li>from一个不能更新的视图</li>
+<li>where子句的子查询引用了from子句中的表</li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><pre><code>变量由系统定义，不是用户定义，属于服务器层面
 </code></pre><ol>
 <li>查看所有系统变量<br> show global | session variables;</li>
 <li>查看满足条件的部分系统变量<br> show global | session variables like ‘%char%’;</li>
@@ -754,7 +899,7 @@ limit 限制查询的个数(分页)
 <li>方式二：<br> SELECT 字段 INTO 具备变量名<br> FROM 表;  </li>
 <li>使用（查看变量的值）<br> SELECT 局部变量名;</li>
 </ol>
-<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ul>
+<h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><ul>
 <li><p>案例1：声明两个变量，求和并打印</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#用户变量</span><br><span class="line">SET @m=1;</span><br><span class="line">SET @n=1;</span><br><span class="line">SET @sum=@m+@n;</span><br><span class="line">SELECT @sum;</span><br><span class="line"></span><br><span class="line">#局部变量</span><br><span class="line">DECLARE m INT DEFAULT 1;</span><br><span class="line">DECLARE n INT DEFAULT 1;</span><br><span class="line">DECLARE SUM INT;</span><br><span class="line">SET SUM=m+n;</span><br><span class="line">SELECT SUM;</span><br></pre></td></tr></table></figure>
 </li>
@@ -1171,7 +1316,7 @@ end repeat 【标签】;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL数据库概述"><span class="nav-number">1.</span> <span class="nav-text">MySQL数据库概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库存储方式"><span class="nav-number">1.1.</span> <span class="nav-text">数据库存储方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库SQL语言"><span class="nav-number">1.2.</span> <span class="nav-text">数据库SQL语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用MySQL"><span class="nav-number">1.3.</span> <span class="nav-text">为什么使用MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL数据类型"><span class="nav-number">2.</span> <span class="nav-text">MySQL数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整数"><span class="nav-number">2.1.</span> <span class="nav-text">整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数"><span class="nav-number">2.2.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.3.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制"><span class="nav-number">2.5.</span> <span class="nav-text">二进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作数据库"><span class="nav-number">3.</span> <span class="nav-text">操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">3.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看服务器上所有的数据库"><span class="nav-number">3.2.</span> <span class="nav-text">查看服务器上所有的数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看创建数据库的代码"><span class="nav-number">3.3.</span> <span class="nav-text">查看创建数据库的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改某个数据库的编码"><span class="nav-number">3.4.</span> <span class="nav-text">修改某个数据库的编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span class="nav-number">3.5.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用某个数据库-将来建表都放在这个库中"><span class="nav-number">3.6.</span> <span class="nav-text">使用某个数据库  (将来建表都放在这个库中)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作数据表"><span class="nav-number">4.</span> <span class="nav-text">操作数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number">4.1.</span> <span class="nav-text">创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">4.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的主键"><span class="nav-number">4.1.2.</span> <span class="nav-text">设置表的主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的外键"><span class="nav-number">4.1.3.</span> <span class="nav-text">设置表的外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用子查询创建表"><span class="nav-number">4.1.4.</span> <span class="nav-text">使用子查询创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的非空约束"><span class="nav-number">4.1.5.</span> <span class="nav-text">设置表的非空约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的唯一性约束"><span class="nav-number">4.1.6.</span> <span class="nav-text">设置表的唯一性约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的属性值自动增加"><span class="nav-number">4.1.7.</span> <span class="nav-text">设置表的属性值自动增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的属性的默认值"><span class="nav-number">4.1.8.</span> <span class="nav-text">设置表的属性的默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询表"><span class="nav-number">4.2.</span> <span class="nav-text">查询表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表基本结构"><span class="nav-number">4.2.1.</span> <span class="nav-text">查看表基本结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表"><span class="nav-number">4.3.</span> <span class="nav-text">修改表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改表名"><span class="nav-number">4.3.1.</span> <span class="nav-text">修改表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段的数据类型"><span class="nav-number">4.3.2.</span> <span class="nav-text">字段的数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-number">4.4.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新数据"><span class="nav-number">4.5.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据"><span class="nav-number">4.6.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询"><span class="nav-number">4.7.</span> <span class="nav-text">数据查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本查询语句"><span class="nav-number">4.7.1.</span> <span class="nav-text">基本查询语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单表查询"><span class="nav-number">4.7.2.</span> <span class="nav-text">单表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合查询"><span class="nav-number">4.7.3.</span> <span class="nav-text">集合查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接查询"><span class="nav-number">4.7.4.</span> <span class="nav-text">连接查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子查询"><span class="nav-number">4.7.5.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并查询"><span class="nav-number">4.7.6.</span> <span class="nav-text">合并查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为表和字段取别名"><span class="nav-number">4.7.7.</span> <span class="nav-text">为表和字段取别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用正则表达式查询"><span class="nav-number">4.7.8.</span> <span class="nav-text">使用正则表达式查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">4.8.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事物"><span class="nav-number">4.9.</span> <span class="nav-text">事物</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">4.10.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">4.11.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统变量"><span class="nav-number">4.11.1.</span> <span class="nav-text">系统变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量"><span class="nav-number">4.11.1.1.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话变量"><span class="nav-number">4.11.1.2.</span> <span class="nav-text">会话变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义变量"><span class="nav-number">4.11.2.</span> <span class="nav-text">自定义变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户变量"><span class="nav-number">4.11.2.1.</span> <span class="nav-text">用户变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部变量"><span class="nav-number">4.11.2.2.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例"><span class="nav-number">4.11.2.3.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程"><span class="nav-number">4.12.</span> <span class="nav-text">存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">4.12.1.</span> <span class="nav-text">创建存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">4.12.2.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">4.12.3.</span> <span class="nav-text">删除存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看存储过程"><span class="nav-number">4.12.4.</span> <span class="nav-text">查看存储过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数-1"><span class="nav-number">4.13.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建函数"><span class="nav-number">4.13.1.</span> <span class="nav-text">创建函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用函数"><span class="nav-number">4.13.2.</span> <span class="nav-text">调用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看函数"><span class="nav-number">4.13.3.</span> <span class="nav-text">查看函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除函数"><span class="nav-number">4.13.4.</span> <span class="nav-text">删除函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制结构"><span class="nav-number">4.14.</span> <span class="nav-text">流程控制结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支结构"><span class="nav-number">4.14.1.</span> <span class="nav-text">分支结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if函数"><span class="nav-number">4.14.1.1.</span> <span class="nav-text">if函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case结构"><span class="nav-number">4.14.1.2.</span> <span class="nav-text">case结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#if结构"><span class="nav-number">4.14.1.3.</span> <span class="nav-text">if结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">4.14.2.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">4.14.2.1.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loop"><span class="nav-number">4.14.2.2.</span> <span class="nav-text">loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">4.14.2.3.</span> <span class="nav-text">repeat</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL数据库概述"><span class="nav-number">1.</span> <span class="nav-text">MySQL数据库概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库存储方式"><span class="nav-number">1.1.</span> <span class="nav-text">数据库存储方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库SQL语言"><span class="nav-number">1.2.</span> <span class="nav-text">数据库SQL语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用MySQL"><span class="nav-number">1.3.</span> <span class="nav-text">为什么使用MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL数据类型"><span class="nav-number">2.</span> <span class="nav-text">MySQL数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整数"><span class="nav-number">2.1.</span> <span class="nav-text">整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数"><span class="nav-number">2.2.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.3.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制"><span class="nav-number">2.5.</span> <span class="nav-text">二进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作数据库"><span class="nav-number">3.</span> <span class="nav-text">操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">3.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看服务器上所有的数据库"><span class="nav-number">3.2.</span> <span class="nav-text">查看服务器上所有的数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看创建数据库的代码"><span class="nav-number">3.3.</span> <span class="nav-text">查看创建数据库的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改某个数据库的编码"><span class="nav-number">3.4.</span> <span class="nav-text">修改某个数据库的编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span class="nav-number">3.5.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用某个数据库-将来建表都放在这个库中"><span class="nav-number">3.6.</span> <span class="nav-text">使用某个数据库  (将来建表都放在这个库中)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作数据表"><span class="nav-number">4.</span> <span class="nav-text">操作数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number">4.1.</span> <span class="nav-text">创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">4.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的主键"><span class="nav-number">4.1.2.</span> <span class="nav-text">设置表的主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的外键"><span class="nav-number">4.1.3.</span> <span class="nav-text">设置表的外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用子查询创建表"><span class="nav-number">4.1.4.</span> <span class="nav-text">使用子查询创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的非空约束"><span class="nav-number">4.1.5.</span> <span class="nav-text">设置表的非空约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的唯一性约束"><span class="nav-number">4.1.6.</span> <span class="nav-text">设置表的唯一性约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的属性值自动增加"><span class="nav-number">4.1.7.</span> <span class="nav-text">设置表的属性值自动增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的属性的默认值"><span class="nav-number">4.1.8.</span> <span class="nav-text">设置表的属性的默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询表"><span class="nav-number">4.2.</span> <span class="nav-text">查询表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表基本结构"><span class="nav-number">4.2.1.</span> <span class="nav-text">查看表基本结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表"><span class="nav-number">4.3.</span> <span class="nav-text">修改表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改表名"><span class="nav-number">4.3.1.</span> <span class="nav-text">修改表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段的数据类型"><span class="nav-number">4.3.2.</span> <span class="nav-text">字段的数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-number">4.4.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新数据"><span class="nav-number">4.5.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据"><span class="nav-number">4.6.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询"><span class="nav-number">4.7.</span> <span class="nav-text">数据查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本查询语句"><span class="nav-number">4.7.1.</span> <span class="nav-text">基本查询语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单表查询"><span class="nav-number">4.7.2.</span> <span class="nav-text">单表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合查询"><span class="nav-number">4.7.3.</span> <span class="nav-text">集合查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接查询"><span class="nav-number">4.7.4.</span> <span class="nav-text">连接查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子查询"><span class="nav-number">4.7.5.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并查询"><span class="nav-number">4.7.6.</span> <span class="nav-text">合并查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为表和字段取别名"><span class="nav-number">4.7.7.</span> <span class="nav-text">为表和字段取别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用正则表达式查询"><span class="nav-number">4.7.8.</span> <span class="nav-text">使用正则表达式查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">4.8.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事物"><span class="nav-number">4.9.</span> <span class="nav-text">事物</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的创建"><span class="nav-number">4.9.1.</span> <span class="nav-text">事务的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式事务"><span class="nav-number">4.9.1.1.</span> <span class="nav-text">隐式事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显式事务："><span class="nav-number">4.9.1.2.</span> <span class="nav-text">显式事务：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例"><span class="nav-number">4.9.1.3.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">4.10.</span> <span class="nav-text">视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建视图"><span class="nav-number">4.10.1.</span> <span class="nav-text">创建视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的修改"><span class="nav-number">4.10.2.</span> <span class="nav-text">视图的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除视图"><span class="nav-number">4.10.3.</span> <span class="nav-text">删除视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看视图"><span class="nav-number">4.10.4.</span> <span class="nav-text">查看视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的更新"><span class="nav-number">4.10.5.</span> <span class="nav-text">视图的更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">4.11.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统变量"><span class="nav-number">4.11.1.</span> <span class="nav-text">系统变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量"><span class="nav-number">4.11.1.1.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话变量"><span class="nav-number">4.11.1.2.</span> <span class="nav-text">会话变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义变量"><span class="nav-number">4.11.2.</span> <span class="nav-text">自定义变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户变量"><span class="nav-number">4.11.2.1.</span> <span class="nav-text">用户变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部变量"><span class="nav-number">4.11.2.2.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例-1"><span class="nav-number">4.11.2.3.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程"><span class="nav-number">4.12.</span> <span class="nav-text">存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">4.12.1.</span> <span class="nav-text">创建存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">4.12.2.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">4.12.3.</span> <span class="nav-text">删除存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看存储过程"><span class="nav-number">4.12.4.</span> <span class="nav-text">查看存储过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数-1"><span class="nav-number">4.13.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建函数"><span class="nav-number">4.13.1.</span> <span class="nav-text">创建函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用函数"><span class="nav-number">4.13.2.</span> <span class="nav-text">调用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看函数"><span class="nav-number">4.13.3.</span> <span class="nav-text">查看函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除函数"><span class="nav-number">4.13.4.</span> <span class="nav-text">删除函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制结构"><span class="nav-number">4.14.</span> <span class="nav-text">流程控制结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支结构"><span class="nav-number">4.14.1.</span> <span class="nav-text">分支结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if函数"><span class="nav-number">4.14.1.1.</span> <span class="nav-text">if函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case结构"><span class="nav-number">4.14.1.2.</span> <span class="nav-text">case结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#if结构"><span class="nav-number">4.14.1.3.</span> <span class="nav-text">if结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环结构"><span class="nav-number">4.14.2.</span> <span class="nav-text">循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while"><span class="nav-number">4.14.2.1.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loop"><span class="nav-number">4.14.2.2.</span> <span class="nav-text">loop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">4.14.2.3.</span> <span class="nav-text">repeat</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1214,7 +1359,7 @@ end repeat 【标签】;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">58.3k</span>
+    <span title="Site words total count">59.1k</span>
   
 </div>
 
