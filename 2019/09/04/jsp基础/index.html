@@ -157,7 +157,7 @@
 <meta property="og:site_name" content="Dragon&#39;s Blog">
 <meta property="og:description" content="jspjava Server Page jsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 定义局部变量，定义语句 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 表达式输出，向页面输出内容 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;定义常量会被翻译成service">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T11:38:58.995Z">
+<meta property="og:updated_time" content="2019-09-05T08:20:33.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp基础">
 <meta name="twitter:description" content="jspjava Server Page jsp本质就是servlet    jsp脚本 &amp;lt;%java代码%&amp;gt; 定义局部变量，定义语句 被翻译到service方法内部    &amp;lt;%=java变量 或表达式%&amp;gt; 表达式输出，向页面输出内容 相当于 out.print(“内容”)  会被翻译成service方法内部 &amp;lt;%！java代码%&amp;gt;定义常量会被翻译成service">
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T19:38:58+08:00">
-                2019-09-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T16:20:33+08:00">
+                2019-09-05
               </time>
             
           </span>
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  730
+                  1.4k
                 </span>
               
 
@@ -581,43 +581,126 @@ jsp本质就是servlet
 </code></pre><blockquote>
 <p>&lt;%@ taglib uri=” “  prefix = “c”  %&gt;<br>prefix表示前缀</p>
 </blockquote>
-<h2 id="jsp内置对象-（9个）"><a href="#jsp内置对象-（9个）" class="headerlink" title="jsp内置对象  （9个）"></a>jsp内置对象  （9个）</h2><ol>
-<li>out<br> 输出内容<br> JSPWriter<br> out.write()<br> out.print()  </li>
-</ol>
-<ul>
-<li>out的类型<br>jspWriter  </li>
-<li>out的作用<br>是向客户端输出内容 out.write()  </li>
-<li>out缓冲区<br>默认为 8kb 可以设置成 0 代表关闭out缓冲区  内容直接输出</li>
-</ul>
-<ol start="2">
-<li>request<br> 请求</li>
-<li>response<br> 响应  </li>
-<li>Config<br> 配置信息</li>
-<li>session<br> 一次会话，用来保存用户的信息</li>
-<li>application<br> 整个web应用，所有用户的共享信息</li>
-<li>page<br> 当前jsp页面范围</li>
-<li><p>pageContext<br> 页面上下文对象</p>
-<ul>
-<li><p>page对象和pageContext对象不是同一回事<br>  setAttribute(String name ,Object obj)<br>  getAttribute(String name)<br>  removeAttribute(String name)  </p>
-<p>  pageContext可以向指定其他域中存取数据<br>  setAttribute(String name,Object obj,int scope)   scope代表范围（其他的域）<br>  getAttribute(String name,int scope)<br>  removeAttribute(String name)<br>  findAttribute(String name)  找到</p>
+<h2 id="jsp内置对象-（9个）"><a href="#jsp内置对象-（9个）" class="headerlink" title="jsp内置对象  （9个）"></a>jsp内置对象  （9个）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">对象</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">pageContext</td>
+<td style="text-align:center">Javax.servlet.jsp.PageContext</td>
+<td style="text-align:center">Jsp的页面容器</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">request</td>
+<td style="text-align:center">Javax.servlet.http.HttpServletRequest</td>
+<td style="text-align:center">表示请求信息，可以通过此对象获取请求信息</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">response</td>
+<td style="text-align:center">Javax.servlet.http.HttpServletResponse</td>
+<td style="text-align:center">表示服务器端对客户端请求的响应</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">session</td>
+<td style="text-align:center">Javax.servlet.http.HttpSession</td>
+<td style="text-align:center">用来保存每一个用户的信息，相当于每一次浏览器访问服务器会话的信息</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">application</td>
+<td style="text-align:center">Javax.servlet.ServletContext</td>
+<td style="text-align:center">表示的是服务器的上下文 整个web应用，所有用户的共享信息</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">config</td>
+<td style="text-align:center">Javax.servlet.ServletConfig</td>
+<td style="text-align:center">项目配置，可以通过此对象获取配置的初始化参数</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">out</td>
+<td style="text-align:center">Javax.servlet.jsp.JspWriter</td>
+<td style="text-align:center">表示的是向页面的输出,out缓冲区默认为 8kb 可以设置成 0，代表关闭out缓冲区  内容直接输出</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">exception</td>
+<td style="text-align:center">Java.lang.Throwable</td>
+<td style="text-align:center">表示jsp发生异常的时候，所有的异常的信息，一般之后再将异常输出到页面的时候才用的上</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">page</td>
+<td style="text-align:center">Java.lang.Object</td>
+<td style="text-align:center">表示的是该页面的Servlet实例 当前jsp页面范围</td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性范围"><a href="#属性范围" class="headerlink" title="属性范围"></a>属性范围</h2><p>属性范围，又称为会话跟踪技术，又称为域对象，在一个页面设置了属性，跳转到另外页面是否还能够取得之前页面设置的属性的问题。属性范围总共有四种： </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">域</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">作用域范围</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">page</td>
+<td style="text-align:center">page域</td>
+<td style="text-align:center">当前页面</td>
+<td style="text-align:center">当前页面可用跳转到其他页面，获取不到之前页面设置的page域对象，使用pageContext对象进行设置和获取域对象</td>
+</tr>
+<tr>
+<td style="text-align:center">request</td>
+<td style="text-align:center">请求域</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">当前页面，转发到其他的页面</td>
+<td>表示在一个页面设置了属性之后，当前页面可以获取到设置的属性，转发到其他的页面，也可以获取到之前页面设置的请求域中的内容，但是重定向之后获取不到，使用的是request对象进行设置或获取域对象的。</td>
+</tr>
+<tr>
+<td style="text-align:center">session</td>
+<td style="text-align:center">会话域</td>
+<td style="text-align:center">当前页面，转发，重定向</td>
+<td style="text-align:center">表示在一个页面设置了属性之后，当前页面可以获取，转发或者重定向到其他页面，也可以获取到之前页面设置的session域中的内容，但是如果浏览器重启或者不是同一个浏览器，那么session域内容获取无效。</td>
+</tr>
+<tr>
+<td style="text-align:center">application</td>
+<td style="text-align:center">application域</td>
+<td style="text-align:center">全局</td>
+<td style="text-align:center">使用application设置的域对象内容，只要服务器不重启，在任何页面都可以后去的到，这种的域对象设置在服务器上面，使用application对象设置和获取域对象内容。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pageContext域对象"><a href="#pageContext域对象" class="headerlink" title="pageContext域对象"></a>pageContext域对象</h3><p>pageContext对象是用来设置、获取和移除page域对象信息的，但是在pageContext中还有另外的三个方法可以操作域对象信息：  </p>
 <blockquote>
-<p>从小到大搜索域的范围中的name<br>  域对象包括：<br>  pageContext域&lt;request域&lt;session域&lt;application域 </p>
+<p>public abstract void removeAttribute(String name, int scope)<br>表示根据域对象名称和范围移除指定的域对象的信息，可以删除四种域对象的任意一种域对象信息<br>public abstract Object getAttribute(String name, int scope)<br>表示根据域对象名称和范围获取指定的域对象的信息，可以获取四种域对象的任意一种域对象信息<br>public abstract void setAttribute(String name,  Object value,  int scope)<br>表示设置域对象信息，可以设置四种范围域对象信息的任意的一种。  </p>
+<ul>
+<li>注意<br>以上的三个方法可以传递的参数都是整形的，在PageContex类中已有定义：  </li>
+</ul>
+<ol>
+<li>public static final int APPLICATION_SCOPE ： application范围</li>
+<li>public static final int PAGE_SCOPE：page范围</li>
+<li>public static final int REQUEST_SCOPE：request范围</li>
+<li>public static final int SESSION_SCOPE：session范围</li>
+</ol>
 </blockquote>
-<blockquote>
-<p>scope可以是  </p>
-<pre><code>REQUEST_SCOPE  
-SESSION_SCOPE  
-APPLICATION_SCOPE  
-</code></pre></blockquote>
-</li>
-<li>作用：<br>  1.pageContext是一个域对象<br>  2.可以获得其他八大隐式对象  <pre><code>pageContext.getRequest()  
-pageContext.getResponse()  
-</code></pre></li>
-</ul>
-</li>
-<li><p>exception<br> 异常</p>
-</li>
-</ol>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><blockquote>
+<p>public abstract Object getAttribute(String name) 通过属性名称获取属性值<br>public abstract void setAttribute(String name, Object value)  设置属性名称和对应的属性值<br>public abstract void removeAttribute(String name)  通过属性名称移除属性  </p>
+</blockquote>
 <h1 id="jsp标签-动作"><a href="#jsp标签-动作" class="headerlink" title="jsp标签  动作"></a>jsp标签  动作</h1><h2 id="页面包含"><a href="#页面包含" class="headerlink" title="页面包含"></a>页面包含</h2><pre><code>动态包含  &lt;jsp:include page=&quot;被包含的页面&quot;/&gt;  形成两个class文件
 </code></pre><h2 id="请求转发："><a href="#请求转发：" class="headerlink" title="请求转发："></a>请求转发：</h2><pre><code>&lt;jsp:forword page =&quot;要转发的资源&quot;/&gt;
 </code></pre><p>静态包含和动态包含的区别</p>
@@ -903,7 +986,7 @@ pageContext.getResponse()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp"><span class="nav-number">1.</span> <span class="nav-text">jsp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp脚本"><span class="nav-number">2.</span> <span class="nav-text">jsp脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp注释"><span class="nav-number">3.</span> <span class="nav-text">jsp注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp指令"><span class="nav-number">4.</span> <span class="nav-text">jsp指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp包括三大指令："><span class="nav-number">5.</span> <span class="nav-text">jsp包括三大指令：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#page-—属性"><span class="nav-number">5.1.</span> <span class="nav-text">page  —属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include指令-静态包含"><span class="nav-number">5.2.</span> <span class="nav-text">include指令  (静态包含)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#taglib指令"><span class="nav-number">5.3.</span> <span class="nav-text">taglib指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp内置对象-（9个）"><span class="nav-number">5.4.</span> <span class="nav-text">jsp内置对象  （9个）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp标签-动作"><span class="nav-number">6.</span> <span class="nav-text">jsp标签  动作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面包含"><span class="nav-number">6.1.</span> <span class="nav-text">页面包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求转发："><span class="nav-number">6.2.</span> <span class="nav-text">请求转发：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp"><span class="nav-number">1.</span> <span class="nav-text">jsp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp脚本"><span class="nav-number">2.</span> <span class="nav-text">jsp脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp注释"><span class="nav-number">3.</span> <span class="nav-text">jsp注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp指令"><span class="nav-number">4.</span> <span class="nav-text">jsp指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp包括三大指令："><span class="nav-number">5.</span> <span class="nav-text">jsp包括三大指令：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#page-—属性"><span class="nav-number">5.1.</span> <span class="nav-text">page  —属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include指令-静态包含"><span class="nav-number">5.2.</span> <span class="nav-text">include指令  (静态包含)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#taglib指令"><span class="nav-number">5.3.</span> <span class="nav-text">taglib指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp内置对象-（9个）"><span class="nav-number">5.4.</span> <span class="nav-text">jsp内置对象  （9个）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性范围"><span class="nav-number">5.5.</span> <span class="nav-text">属性范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pageContext域对象"><span class="nav-number">5.5.1.</span> <span class="nav-text">pageContext域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">5.5.2.</span> <span class="nav-text">操作方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp标签-动作"><span class="nav-number">6.</span> <span class="nav-text">jsp标签  动作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面包含"><span class="nav-number">6.1.</span> <span class="nav-text">页面包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求转发："><span class="nav-number">6.2.</span> <span class="nav-text">请求转发：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -946,7 +1029,7 @@ pageContext.getResponse()
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">60k</span>
+    <span title="Site words total count">60.7k</span>
   
 </div>
 
