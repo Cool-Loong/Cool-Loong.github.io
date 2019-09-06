@@ -157,7 +157,7 @@
 <meta property="og:site_name" content="Dragon&#39;s Blog">
 <meta property="og:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T12:50:15.950Z">
+<meta property="og:updated_time" content="2019-09-06T12:53:27.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie对象和Session对象">
 <meta name="twitter:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T20:50:15+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T20:53:27+08:00">
                 2019-09-06
               </time>
             
@@ -543,8 +543,8 @@
 <li>getValue()<br>获得Cookie的值 </li>
 </ul>
 <h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>Session技术是将数据存储在服务器端的技术，会为每个客户端都创建一块内存空间    存储客户的数据，但客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内    存空间。所以说Session的实现是基于Cookie，Session需要借助于Cookie存储客    户的唯一性标识JSESSIONID  </p>
-<h2 id="获得Session对象"><a href="#获得Session对象" class="headerlink" title="获得Session对象"></a>获得Session对象</h2><p>HttpSession session = request.getSession()<br>根据JSESSIONID判断该客户端是否在服务器上已经存在session了</p>
-<h2 id="向Session中存取数据"><a href="#向Session中存取数据" class="headerlink" title="向Session中存取数据"></a>向Session中存取数据</h2><p>session也是一个域对象 </p>
+<h2 id="获得Session对象"><a href="#获得Session对象" class="headerlink" title="获得Session对象"></a>获得Session对象</h2><p>HttpSession session = request.getSession()<br>根据JSESSIONID判断该客户端是否在服务器上已经存在session了  </p>
+<h2 id="向Session中存取数据"><a href="#向Session中存取数据" class="headerlink" title="向Session中存取数据"></a>向Session中存取数据</h2><p>session也是一个域对象   </p>
 <ul>
 <li>session.setAttribute(String name,String value)</li>
 <li>session.getAttribute(String name)</li>
