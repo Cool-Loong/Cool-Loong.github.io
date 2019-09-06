@@ -136,7 +136,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="java,javaee,servlet,">
 
 
 
@@ -149,17 +149,18 @@
 
 
 
-<meta name="description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
-<meta name="keywords" content="越努力，越幸运">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dragon&#39;s Blog">
-<meta property="og:url" content="https://Cool-Loong.github.io/archives/2019/09/index.html">
+<meta name="description" content="Servlet简介什么是ServletServlet 运行在服务端的Java小程序，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。但servlet的实质就是java代码，通过java的API    动态的向客户端输出内容    技术点   servlet技术 filter技术 过滤器 listener技术 监听器   作用用来处理从客户端发送过来的请求，并对该请求做">
+<meta name="keywords" content="java,javaee,servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet基础">
+<meta property="og:url" content="https://Cool-Loong.github.io/2019/09/06/Servlet/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
+<meta property="og:description" content="Servlet简介什么是ServletServlet 运行在服务端的Java小程序，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。但servlet的实质就是java代码，通过java的API    动态的向客户端输出内容    技术点   servlet技术 filter技术 过滤器 listener技术 监听器   作用用来处理从客户端发送过来的请求，并对该请求做">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-06T08:19:40.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dragon&#39;s Blog">
-<meta name="twitter:description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
+<meta name="twitter:title" content="Servlet基础">
+<meta name="twitter:description" content="Servlet简介什么是ServletServlet 运行在服务端的Java小程序，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。但servlet的实质就是java代码，通过java的API    动态的向客户端输出内容    技术点   servlet技术 filter技术 过滤器 listener技术 监听器   作用用来处理从客户端发送过来的请求，并对该请求做">
 
 
 
@@ -189,13 +190,13 @@
 
 
 
-  <link rel="canonical" href="https://Cool-Loong.github.io/archives/2019/09/">
+  <link rel="canonical" href="https://Cool-Loong.github.io/2019/09/06/Servlet/">
 
 
 
 
 
-  <title>归档 | Dragon's Blog</title>
+  <title>Servlet基础 | Dragon's Blog</title>
   
 
 
@@ -224,7 +225,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -360,282 +361,329 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cool-Loong.github.io/2019/09/06/Servlet/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Loong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dragon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Servlet基础</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T12:33:58+08:00">
+                2019-09-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T16:19:40+08:00">
+                2019-09-06
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 29 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/06/Servlet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/06/Servlet/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2019/09/06/Servlet/" class="leancloud_visitors" data-flag-title="Servlet基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/06/Cookie对象和Session对象/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">Cookie对象和Session对象</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  516
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-06T16:41:29+08:00" content="2019-09-06">
-          09-06
-        </time>
-      </div>
+              
 
-    </header>
-  </article>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/06/Servlet/" itemprop="url">
-              
-                <span itemprop="name">Servlet基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-06T12:33:58+08:00" content="2019-09-06">
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/05/response对象基础/" itemprop="url">
-              
-                <span itemprop="name">response对象基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-05T18:56:14+08:00" content="2019-09-05">
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a>Servlet简介</h1><h2 id="什么是Servlet"><a href="#什么是Servlet" class="headerlink" title="什么是Servlet"></a>什么是Servlet</h2><p>Servlet 运行在服务端的Java小程序，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。但servlet的实质就是java代码，通过java的API    动态的向客户端输出内容  </p>
+<ul>
+<li>技术点</li>
+</ul>
+<ol>
+<li>servlet技术</li>
+<li>filter技术 过滤器</li>
+<li>listener技术 监听器</li>
+</ol>
+<ul>
+<li>作用<br>用来处理从客户端发送过来的请求，并对该请求做出响应  <ol>
+<li>获取请求数据  </li>
+<li>处理请求  </li>
+<li>完成响应  <h1 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h1><h2 id="Servlet接口中方法"><a href="#Servlet接口中方法" class="headerlink" title="Servlet接口中方法"></a>Servlet接口中方法</h2></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>init(ServletConfig config)<br>何时执行：servlet对象创建的时候执行<br>ServletConfig ： 代表的是该servlet对象的配置信息  </p>
+</li>
+<li><p>service（ServletRequest request,ServletResponse response）<br>何时执行：每次请求都会执行<br>ServletRequest ：代表请求 认为ServletRequest 内部封装的是http请求的信息<br>ServletResponse ：代表响应 认为要封装的是响应的信息  </p>
+</li>
+<li><p>destroy()<br>何时执行：servlet销毁的时候执行  </p>
+<h2 id="HttpServlet类的方法"><a href="#HttpServlet类的方法" class="headerlink" title="HttpServlet类的方法"></a>HttpServlet类的方法</h2></li>
+<li>init()</li>
+<li>doGet(HttpServletRequest request,HttpServletResponse response)</li>
+<li>doPost(HttpServletRequest request,HttpServletResponse response)</li>
+<li><p>destroy()</p>
+<h2 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h2><p>1。 Servlet何时创建<br>默认第一次访问servlet时创建该对象</p>
+</li>
+<li><p>Servlet何时销毁<br>服务器关闭servlet就销毁了</p>
+</li>
+<li><p>每次访问必然执行的方法<br>service(ServletRequest req, ServletResponse res)方法</p>
+</li>
+</ol>
+<h1 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h1><h2 id="什么是ServletContext对象"><a href="#什么是ServletContext对象" class="headerlink" title="什么是ServletContext对象"></a>什么是ServletContext对象</h2><p>ServletContext代表是一个web应用的环境（上下文）对象，ServletContext对象    内部封装是该web应用的信息，ServletContext对象一个web应用只有一个  </p>
+<h2 id="ServletContext对象的生命周期？"><a href="#ServletContext对象的生命周期？" class="headerlink" title="ServletContext对象的生命周期？"></a>ServletContext对象的生命周期？</h2><ol>
+<li>创建：该web应用被加载（服务器启动或发布web应用（前提，服务器启动状        态））</li>
+<li>销毁：web应用被卸载（服务器关闭，移除该web应用）<h2 id="ServletContext对象的作用"><a href="#ServletContext对象的作用" class="headerlink" title="ServletContext对象的作用"></a>ServletContext对象的作用</h2></li>
+<li>获得web应用全局的初始化参数  </li>
+<li>获得web应用中任何资源的绝对路径<br> String path = ServletContext.getRealPath();  </li>
+<li>ServletContext是一个域对象<br>作用范围: 整个web应用</li>
+<li>获得Servlet配置信息<br>getInitParameter(String name)<br>获得 初始化参数<br>getInitParameterNames()<br>获得所有servlet的初始化参数的名称<br>getServleContext()<br>获得ServletContext对象<br>getServletName()<br>获得servlet在web.xml中配置的name的值  </li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/05/request对象基础/" itemprop="url">
-              
-                <span itemprop="name">request对象基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-05T16:22:40+08:00" content="2019-09-05">
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/04/Linux基础/" itemprop="url">
-              
-                <span itemprop="name">Linux基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T10:18:05+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/04/Redis基础/" itemprop="url">
-              
-                <span itemprop="name">Redis基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T10:16:36+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/04/jsp基础/" itemprop="url">
-              
-                <span itemprop="name">jsp基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T10:14:08+08:00" content="2019-09-04">
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束,感谢您的阅读-------------</div>
+
+</div>
+
+    
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wx.png" alt="Loong 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/zfb.jpg" alt="Loong 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Loong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://Cool-Loong.github.io/2019/09/06/Servlet/" title="Servlet基础">https://Cool-Loong.github.io/2019/09/06/Servlet/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/javaee/" rel="tag"><i class="fa fa-tag"></i> javaee</a>
+          
+            <a href="/tags/servlet/" rel="tag"><i class="fa fa-tag"></i> servlet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/05/response对象基础/" rel="next" title="response对象基础">
+                <i class="fa fa-chevron-left"></i> response对象基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/06/Cookie对象和Session对象/" rel="prev" title="Cookie对象和Session对象">
+                Cookie对象和Session对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -643,6 +691,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -663,8 +718,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -749,6 +813,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet简介"><span class="nav-number">1.</span> <span class="nav-text">Servlet简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Servlet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet生命周期"><span class="nav-number">2.</span> <span class="nav-text">Servlet生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet接口中方法"><span class="nav-number">2.1.</span> <span class="nav-text">Servlet接口中方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpServlet类的方法"><span class="nav-number">2.2.</span> <span class="nav-text">HttpServlet类的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet的生命周期"><span class="nav-number">2.3.</span> <span class="nav-text">Servlet的生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ServletContext对象"><span class="nav-number">3.</span> <span class="nav-text">ServletContext对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是ServletContext对象"><span class="nav-number">3.1.</span> <span class="nav-text">什么是ServletContext对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext对象的生命周期？"><span class="nav-number">3.2.</span> <span class="nav-text">ServletContext对象的生命周期？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext对象的作用"><span class="nav-number">3.3.</span> <span class="nav-text">ServletContext对象的作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +983,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

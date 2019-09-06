@@ -3,6 +3,66 @@
   
     
     <entry>
+      <title>Cookie对象和Session对象</title>
+      <link href="/2019/09/06/Cookie%E5%AF%B9%E8%B1%A1%E5%92%8CSession%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2019/09/06/Cookie%E5%AF%B9%E8%B1%A1%E5%92%8CSession%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cookie </tag>
+            
+            <tag> Session </tag>
+            
+            <tag> java </tag>
+            
+            <tag> javaee </tag>
+            
+            <tag> jsp </tag>
+            
+            <tag> servlet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Servlet基础</title>
+      <link href="/2019/09/06/Servlet/"/>
+      <url>/2019/09/06/Servlet/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a>Servlet简介</h1><h2 id="什么是Servlet"><a href="#什么是Servlet" class="headerlink" title="什么是Servlet"></a>什么是Servlet</h2><p>Servlet 运行在服务端的Java小程序，是sun公司提供一套规范（接口），用来处理客户端请求、响应给浏览器的动态资源。但servlet的实质就是java代码，通过java的API    动态的向客户端输出内容  </p><ul><li>技术点</li></ul><ol><li>servlet技术</li><li>filter技术 过滤器</li><li>listener技术 监听器</li></ol><ul><li>作用<br>用来处理从客户端发送过来的请求，并对该请求做出响应  <ol><li>获取请求数据  </li><li>处理请求  </li><li>完成响应  <h1 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h1><h2 id="Servlet接口中方法"><a href="#Servlet接口中方法" class="headerlink" title="Servlet接口中方法"></a>Servlet接口中方法</h2></li></ol></li></ul><ol><li><p>init(ServletConfig config)<br>何时执行：servlet对象创建的时候执行<br>ServletConfig ： 代表的是该servlet对象的配置信息  </p></li><li><p>service（ServletRequest request,ServletResponse response）<br>何时执行：每次请求都会执行<br>ServletRequest ：代表请求 认为ServletRequest 内部封装的是http请求的信息<br>ServletResponse ：代表响应 认为要封装的是响应的信息  </p></li><li><p>destroy()<br>何时执行：servlet销毁的时候执行  </p><h2 id="HttpServlet类的方法"><a href="#HttpServlet类的方法" class="headerlink" title="HttpServlet类的方法"></a>HttpServlet类的方法</h2></li><li>init()</li><li>doGet(HttpServletRequest request,HttpServletResponse response)</li><li>doPost(HttpServletRequest request,HttpServletResponse response)</li><li><p>destroy()</p><h2 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h2><p>1。 Servlet何时创建<br>默认第一次访问servlet时创建该对象</p></li><li><p>Servlet何时销毁<br>服务器关闭servlet就销毁了</p></li><li><p>每次访问必然执行的方法<br>service(ServletRequest req, ServletResponse res)方法</p></li></ol><h1 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h1><h2 id="什么是ServletContext对象"><a href="#什么是ServletContext对象" class="headerlink" title="什么是ServletContext对象"></a>什么是ServletContext对象</h2><p>ServletContext代表是一个web应用的环境（上下文）对象，ServletContext对象    内部封装是该web应用的信息，ServletContext对象一个web应用只有一个  </p><h2 id="ServletContext对象的生命周期？"><a href="#ServletContext对象的生命周期？" class="headerlink" title="ServletContext对象的生命周期？"></a>ServletContext对象的生命周期？</h2><ol><li>创建：该web应用被加载（服务器启动或发布web应用（前提，服务器启动状        态））</li><li>销毁：web应用被卸载（服务器关闭，移除该web应用）<h2 id="ServletContext对象的作用"><a href="#ServletContext对象的作用" class="headerlink" title="ServletContext对象的作用"></a>ServletContext对象的作用</h2></li><li>获得web应用全局的初始化参数  </li><li>获得web应用中任何资源的绝对路径<br> String path = ServletContext.getRealPath();  </li><li>ServletContext是一个域对象<br>作用范围: 整个web应用</li><li>获得Servlet配置信息<br>getInitParameter(String name)<br>获得 初始化参数<br>getInitParameterNames()<br>获得所有servlet的初始化参数的名称<br>getServleContext()<br>获得ServletContext对象<br>getServletName()<br>获得servlet在web.xml中配置的name的值  </li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> javaee </tag>
+            
+            <tag> servlet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>response对象基础</title>
       <link href="/2019/09/05/response%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/"/>
       <url>/2019/09/05/response%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/</url>
@@ -21,13 +81,13 @@
             
             <tag> java </tag>
             
-            <tag> jsp </tag>
-            
-            <tag> response </tag>
-            
             <tag> javaee </tag>
             
+            <tag> jsp </tag>
+            
             <tag> servlet </tag>
+            
+            <tag> response </tag>
             
         </tags>
       
@@ -52,9 +112,9 @@
             
             <tag> java </tag>
             
-            <tag> jsp </tag>
-            
             <tag> javaee </tag>
+            
+            <tag> jsp </tag>
             
             <tag> reqeuest </tag>
             
