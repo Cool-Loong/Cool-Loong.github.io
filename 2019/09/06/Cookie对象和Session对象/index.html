@@ -149,18 +149,18 @@
 
 
 
-<meta name="description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
+<meta name="description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
 <meta name="keywords" content="Cookie,Session,java,javaee,jsp,servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie对象和Session对象">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/09/06/Cookie对象和Session对象/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
+<meta property="og:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T08:43:07.293Z">
+<meta property="og:updated_time" content="2019-09-06T12:50:15.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie对象和Session对象">
-<meta name="twitter:description" content="时刻记住：不要被对象，属性，方法等词汇所迷惑；最根本的是先了解最基础的知识">
+<meta name="twitter:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
 
 
 
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T16:43:07+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T20:50:15+08:00">
                 2019-09-06
               </time>
             
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  664
                 </span>
               
 
@@ -516,7 +516,58 @@
       
 
       
-        
+        <h1 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h1><p>从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。<br>会话技术分为Cookie和Session：</p>
+<ul>
+<li>Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie</li>
+<li><p>Session：将数据存储到服务器端，安全性相对好，增加服务器的压力</p>
+</li>
+<li><p>作用<br>存储客户端状态</p>
+</li>
+</ul>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>将用户的数据存储到客户端的技术</p>
+<h2 id="服务器端向客户端发送一个Cookie"><a href="#服务器端向客户端发送一个Cookie" class="headerlink" title="服务器端向客户端发送一个Cookie"></a>服务器端向客户端发送一个Cookie</h2><ol>
+<li>创建Cookie:<br> Cookie cookie = new Cookie(String name,Stirng value);</li>
+<li>设置Cookie在客户端过期时间<br>Cookie.setMaxAge(intseconds)<br>单位：s  </li>
+<li>设置Cookie的携带路径<br>Cookie.setPath(String path)<br>如果不设置携带路径，那么该cookie信息会在访问产生该cookie的    web资源所在的路径都携带cookie信息</li>
+<li>向客户端发送Cookie<br>response.addCookie(Cookie cookie);</li>
+<li>删除客户端的Cookie:<br>如果想删除客户端的已经存储的cookie信息，那么就使用同名同路径的持久化时    间为0的cookie进行覆盖即可  <h2 id="服务器端怎么接受客户端携带的Cookie"><a href="#服务器端怎么接受客户端携带的Cookie" class="headerlink" title="服务器端怎么接受客户端携带的Cookie"></a>服务器端怎么接受客户端携带的Cookie</h2></li>
+<li>通过request获得所有的Cookie<br>Cookie[] cookies = request.getCookies();</li>
+<li><p>遍历Cookie数组，通过Cookie的名称获得我们想要的Cookie</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(Cookie cookie:cookies)&#123;</span><br><span class="line">    if(cookie.getName().equals(cookieName))&#123;</span><br><span class="line">        String cookieValue = cookie.getValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法</p>
+</li>
+</ol>
+<ul>
+<li>getName()<br>获得Cookie名称</li>
+<li>getValue()<br>获得Cookie的值 </li>
+</ul>
+<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>Session技术是将数据存储在服务器端的技术，会为每个客户端都创建一块内存空间    存储客户的数据，但客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内    存空间。所以说Session的实现是基于Cookie，Session需要借助于Cookie存储客    户的唯一性标识JSESSIONID  </p>
+<h2 id="获得Session对象"><a href="#获得Session对象" class="headerlink" title="获得Session对象"></a>获得Session对象</h2><p>HttpSession session = request.getSession()<br>根据JSESSIONID判断该客户端是否在服务器上已经存在session了</p>
+<h2 id="向Session中存取数据"><a href="#向Session中存取数据" class="headerlink" title="向Session中存取数据"></a>向Session中存取数据</h2><p>session也是一个域对象 </p>
+<ul>
+<li>session.setAttribute(String name,String value)</li>
+<li>session.getAttribute(String name)</li>
+<li>session.removeAttribute(String name)<h2 id="Session对象的生命周期"><a href="#Session对象的生命周期" class="headerlink" title="Session对象的生命周期"></a>Session对象的生命周期</h2></li>
+</ul>
+<ol>
+<li>创建<br>第一次执行request.getSession()时创建</li>
+<li>销毁  <ul>
+<li>服务器非正常关闭</li>
+<li>session过期/失效（默认为三十分钟）<br>可以在工程中配置：<br><session-config><br>  <session-timeout>30<session-timeout><br><session-config></session-config></session-timeout></session-timeout></session-config></li>
+<li>手动销毁session<br>session.invalidate();</li>
+</ul>
+</li>
+</ol>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li>isNew()<br>判断当前session是不是新创建的</li>
+<li>invalidate()<br>强制使Sessio对象无效</li>
+<li>getServletContext()<br>返回ServletContext对象</li>
+<li>getLastAccessedTime()<br>返回客户端最后一次发送与Session相关请求的时间</li>
+<li>getCreationTime()<br>返回Session创建时间</li>
+<li>getID()<br>返回与当前HttpSession对象关联的会话标识号</li>
+</ol>
+
       
     </div>
     
@@ -676,8 +727,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -763,6 +823,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#会话技术"><span class="nav-number">1.</span> <span class="nav-text">会话技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端向客户端发送一个Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">服务器端向客户端发送一个Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端怎么接受客户端携带的Cookie"><span class="nav-number">2.2.</span> <span class="nav-text">服务器端怎么接受客户端携带的Cookie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session"><span class="nav-number">3.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获得Session对象"><span class="nav-number">3.1.</span> <span class="nav-text">获得Session对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向Session中存取数据"><span class="nav-number">3.2.</span> <span class="nav-text">向Session中存取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session对象的生命周期"><span class="nav-number">3.3.</span> <span class="nav-text">Session对象的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.4.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -799,7 +875,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.2k</span>
+    <span title="Site words total count">62.9k</span>
   
 </div>
 
