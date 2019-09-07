@@ -136,7 +136,7 @@
 
 
 
-  <meta name="keywords" content="Cookie,Session,java,javaee,jsp,servlet,">
+  <meta name="keywords" content="java,jsp,servlet,javaee,Cookie,Session,">
 
 
 
@@ -150,14 +150,14 @@
 
 
 <meta name="description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
-<meta name="keywords" content="Cookie,Session,java,javaee,jsp,servlet">
+<meta name="keywords" content="java,jsp,servlet,javaee,Cookie,Session">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie对象和Session对象">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/09/06/Cookie对象和Session对象/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
 <meta property="og:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T12:53:27.520Z">
+<meta property="og:updated_time" content="2019-09-07T01:15:28.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie对象和Session对象">
 <meta name="twitter:description" content="会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，成为一次会话。会    话技术就是记录这次会话中客户端的状态与数据的。会话技术分为Cookie和Session：  Cookie：数据存储在客户端本地，减少服务器端的存储的压力，安全性不好，客户端    可以清除cookie Session：将数据存储到服务器端，安全性相对好，增加服务器的压力  作用存储客户端状态   Cookie">
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T20:53:27+08:00">
-                2019-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-07T09:15:28+08:00">
+                2019-09-07
               </time>
             
           </span>
@@ -530,7 +530,9 @@
 <li>设置Cookie在客户端过期时间<br>Cookie.setMaxAge(intseconds)<br>单位：s  </li>
 <li>设置Cookie的携带路径<br>Cookie.setPath(String path)<br>如果不设置携带路径，那么该cookie信息会在访问产生该cookie的    web资源所在的路径都携带cookie信息</li>
 <li>向客户端发送Cookie<br>response.addCookie(Cookie cookie);</li>
-<li>删除客户端的Cookie:<br>如果想删除客户端的已经存储的cookie信息，那么就使用同名同路径的持久化时    间为0的cookie进行覆盖即可  <h2 id="服务器端怎么接受客户端携带的Cookie"><a href="#服务器端怎么接受客户端携带的Cookie" class="headerlink" title="服务器端怎么接受客户端携带的Cookie"></a>服务器端怎么接受客户端携带的Cookie</h2></li>
+<li>删除客户端的Cookie:<br>如果想删除客户端的已经存储的cookie信息，那么就使用同名同路径的持久化时    间为0的cookie进行覆盖即可  </li>
+</ol>
+<h2 id="服务器端怎么接受客户端携带的Cookie"><a href="#服务器端怎么接受客户端携带的Cookie" class="headerlink" title="服务器端怎么接受客户端携带的Cookie"></a>服务器端怎么接受客户端携带的Cookie</h2><ol>
 <li>通过request获得所有的Cookie<br>Cookie[] cookies = request.getCookies();</li>
 <li><p>遍历Cookie数组，通过Cookie的名称获得我们想要的Cookie</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(Cookie cookie:cookies)&#123;</span><br><span class="line">    if(cookie.getName().equals(cookieName))&#123;</span><br><span class="line">        String cookieValue = cookie.getValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -548,9 +550,9 @@
 <ul>
 <li>session.setAttribute(String name,String value)</li>
 <li>session.getAttribute(String name)</li>
-<li>session.removeAttribute(String name)<h2 id="Session对象的生命周期"><a href="#Session对象的生命周期" class="headerlink" title="Session对象的生命周期"></a>Session对象的生命周期</h2></li>
+<li>session.removeAttribute(String name)</li>
 </ul>
-<ol>
+<h2 id="Session对象的生命周期"><a href="#Session对象的生命周期" class="headerlink" title="Session对象的生命周期"></a>Session对象的生命周期</h2><ol>
 <li>创建<br>第一次执行request.getSession()时创建</li>
 <li>销毁  <ul>
 <li>服务器非正常关闭</li>
@@ -641,17 +643,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Cookie/" rel="tag"><i class="fa fa-tag"></i> Cookie</a>
-          
-            <a href="/tags/Session/" rel="tag"><i class="fa fa-tag"></i> Session</a>
-          
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/javaee/" rel="tag"><i class="fa fa-tag"></i> javaee</a>
           
             <a href="/tags/jsp/" rel="tag"><i class="fa fa-tag"></i> jsp</a>
           
             <a href="/tags/servlet/" rel="tag"><i class="fa fa-tag"></i> servlet</a>
+          
+            <a href="/tags/javaee/" rel="tag"><i class="fa fa-tag"></i> javaee</a>
+          
+            <a href="/tags/Cookie/" rel="tag"><i class="fa fa-tag"></i> Cookie</a>
+          
+            <a href="/tags/Session/" rel="tag"><i class="fa fa-tag"></i> Session</a>
           
         </div>
       
@@ -758,7 +760,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -780,7 +782,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -879,7 +881,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.8k</span>
+    <span title="Site words total count">65.7k</span>
   
 </div>
 
