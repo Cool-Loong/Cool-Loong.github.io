@@ -149,18 +149,18 @@
 
 
 
-<meta name="description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 1. 字符串类型(String) 2. 散列类型(hashMap  ) 3.列表类型（list） 4.集合类型(set) 5.有序集合类型(sortset)  开启Redis    前端方式./redis-server 后端方式./redis-server">
+<meta name="description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 字符串类型(String) 散列类型(hashMap  ) 列表类型（list） 集合类型(set) 有序集合类型(sortset)   开启Redis    前端方式./redis-server 后端方式./redis-server redis.conf">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis基础">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/09/04/Redis基础/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 1. 字符串类型(String) 2. 散列类型(hashMap  ) 3.列表类型（list） 4.集合类型(set) 5.有序集合类型(sortset)  开启Redis    前端方式./redis-server 后端方式./redis-server">
+<meta property="og:description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 字符串类型(String) 散列类型(hashMap  ) 列表类型（list） 集合类型(set) 有序集合类型(sortset)   开启Redis    前端方式./redis-server 后端方式./redis-server redis.conf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T11:57:56.023Z">
+<meta property="og:updated_time" content="2019-09-07T13:20:48.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis基础">
-<meta name="twitter:description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 1. 字符串类型(String) 2. 散列类型(hashMap  ) 3.列表类型（list） 4.集合类型(set) 5.有序集合类型(sortset)  开启Redis    前端方式./redis-server 后端方式./redis-server">
+<meta name="twitter:description" content="什么是RedisRedis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求 支持的数据类型: 字符串类型(String) 散列类型(hashMap  ) 列表类型（list） 集合类型(set) 有序集合类型(sortset)   开启Redis    前端方式./redis-server 后端方式./redis-server redis.conf">
 
 
 
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-04T19:57:56+08:00">
-                2019-09-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-07T21:20:48+08:00">
+                2019-09-07
               </time>
             
           </span>
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.7k
                 </span>
               
 
@@ -528,13 +528,14 @@
 
       
         <h1 id="什么是Redis"><a href="#什么是Redis" class="headerlink" title="什么是Redis"></a>什么是Redis</h1><pre><code>Redis是用C语言开发的一个开源的高性能键值对数据库，它通过提供多种键值数据类型来适应不同场景下的存储需求
-支持的数据类型:
-1. 字符串类型(String)
-2. 散列类型(hashMap  )
-3.列表类型（list）
-4.集合类型(set)
-5.有序集合类型(sortset)
-</code></pre><ul>
+</code></pre><h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型:"></a>支持的数据类型:</h2><ol>
+<li>字符串类型(String)</li>
+<li>散列类型(hashMap  )</li>
+<li>列表类型（list）</li>
+<li>集合类型(set)</li>
+<li>有序集合类型(sortset)</li>
+</ol>
+<ul>
 <li><p>开启Redis  </p>
 <ol>
 <li>前端方式<br>./redis-server</li>
@@ -706,14 +707,15 @@ set username  张三
 <li>discard<br>  事务回滚，类似于关系数据库中的rollback</li>
 </ul>
 <h2 id="redis持久化"><a href="#redis持久化" class="headerlink" title="redis持久化"></a>redis持久化</h2><p>redis的高性能是由于其将所有数据都存储在了内存中，为了使redis在重启之后任能保证数据不丢失，需要将数据从内存中同步到硬盘中，这一过程就是持久化</p>
+<h3 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h3><h4 id="RDB方式-redis-databases"><a href="#RDB方式-redis-databases" class="headerlink" title="RDB方式(redis databases)"></a>RDB方式(redis databases)</h4><pre><code>默认支持，无需配置  
+在指定时间间隔内将内存中的数据集快照写入到磁盘  
+Snapshot快照 ，它恢复时是将快照文件直接读到内存中  
+如果需要进行大规模数据的恢复，并且对于数据恢复的完整性不是非常敏感，那么RDB方式要比AOF方式更加的高效
+</code></pre><h5 id="RDB的缺点"><a href="#RDB的缺点" class="headerlink" title="RDB的缺点"></a>RDB的缺点</h5><p>最后一次持久化后的数据可能丢失<br>fork的时候内存中需要保存两份数据</p>
 <ul>
-<li>持久化方式  </li>
+<li>Rdb保存的是dump.rdb</li>
 </ul>
-<ol>
-<li>RDB方式<br> 默认支持，无需配置</li>
-<li>AOF方式</li>
-</ol>
-
+<h4 id="AOF方式（append-only-file）"><a href="#AOF方式（append-only-file）" class="headerlink" title="AOF方式（append only file）"></a>AOF方式（append only file）</h4>
       
     </div>
     
@@ -972,7 +974,7 @@ set username  张三
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Redis"><span class="nav-number">1.</span> <span class="nav-text">什么是Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis对外网端口开放"><span class="nav-number">2.</span> <span class="nav-text">Redis对外网端口开放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看对外开放的端口状态"><span class="nav-number">2.1.</span> <span class="nav-text">查看对外开放的端口状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看防火墙状态"><span class="nav-number">2.2.</span> <span class="nav-text">查看防火墙状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对外开放端口"><span class="nav-number">2.3.</span> <span class="nav-text">对外开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis数据结构"><span class="nav-number">3.</span> <span class="nav-text">Redis数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储String"><span class="nav-number">3.2.</span> <span class="nav-text">存储String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值"><span class="nav-number">3.2.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值"><span class="nav-number">3.2.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">3.2.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值增减（数字）"><span class="nav-number">3.2.4.</span> <span class="nav-text">数值增减（数字）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储hash"><span class="nav-number">3.3.</span> <span class="nav-text">存储hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-number">3.3.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加"><span class="nav-number">3.3.4.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.3.5.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储list"><span class="nav-number">3.4.</span> <span class="nav-text">存储list</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-number">3.4.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两端弹出"><span class="nav-number">3.4.3.</span> <span class="nav-text">两端弹出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取列表的元素的个数"><span class="nav-number">3.4.4.</span> <span class="nav-text">获取列表的元素的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展命令"><span class="nav-number">3.4.5.</span> <span class="nav-text">扩展命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储Set"><span class="nav-number">3.5.</span> <span class="nav-text">存储Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-1"><span class="nav-number">3.5.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-2"><span class="nav-number">3.5.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取元素"><span class="nav-number">3.5.3.</span> <span class="nav-text">获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差集运算"><span class="nav-number">3.5.4.</span> <span class="nav-text">差集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交集运算"><span class="nav-number">3.5.5.</span> <span class="nav-text">交集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并集运算"><span class="nav-number">3.5.6.</span> <span class="nav-text">并集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展命令-1"><span class="nav-number">3.5.7.</span> <span class="nav-text">扩展命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储sorted-set"><span class="nav-number">3.6.</span> <span class="nav-text">存储sorted set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">3.6.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Keys通用操作"><span class="nav-number">4.</span> <span class="nav-text">Keys通用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#keys-pattern"><span class="nav-number">4.1.</span> <span class="nav-text">keys pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#del-key1-key2-…"><span class="nav-number">4.2.</span> <span class="nav-text">del key1 key2 …</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exists-key"><span class="nav-number">4.3.</span> <span class="nav-text">exists key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename-key-newkey"><span class="nav-number">4.4.</span> <span class="nav-text">rename key newkey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expire-key-过期时间"><span class="nav-number">4.5.</span> <span class="nav-text">expire key 过期时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ttl-key"><span class="nav-number">4.6.</span> <span class="nav-text">ttl key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-key"><span class="nav-number">4.7.</span> <span class="nav-text">type key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-特性"><span class="nav-number">5.</span> <span class="nav-text">Redis 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多数据库"><span class="nav-number">5.1.</span> <span class="nav-text">多数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器命令"><span class="nav-number">5.2.</span> <span class="nav-text">服务器命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息订阅与发布"><span class="nav-number">5.3.</span> <span class="nav-text">消息订阅与发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reis事务"><span class="nav-number">5.4.</span> <span class="nav-text">reis事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis持久化"><span class="nav-number">5.5.</span> <span class="nav-text">redis持久化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Redis"><span class="nav-number">1.</span> <span class="nav-text">什么是Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#支持的数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">支持的数据类型:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis对外网端口开放"><span class="nav-number">2.</span> <span class="nav-text">Redis对外网端口开放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看对外开放的端口状态"><span class="nav-number">2.1.</span> <span class="nav-text">查看对外开放的端口状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看防火墙状态"><span class="nav-number">2.2.</span> <span class="nav-text">查看防火墙状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对外开放端口"><span class="nav-number">2.3.</span> <span class="nav-text">对外开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis数据结构"><span class="nav-number">3.</span> <span class="nav-text">Redis数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储String"><span class="nav-number">3.2.</span> <span class="nav-text">存储String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值"><span class="nav-number">3.2.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值"><span class="nav-number">3.2.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">3.2.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值增减（数字）"><span class="nav-number">3.2.4.</span> <span class="nav-text">数值增减（数字）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储hash"><span class="nav-number">3.3.</span> <span class="nav-text">存储hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-number">3.3.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加"><span class="nav-number">3.3.4.</span> <span class="nav-text">增加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.3.5.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储list"><span class="nav-number">3.4.</span> <span class="nav-text">存储list</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-number">3.4.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两端弹出"><span class="nav-number">3.4.3.</span> <span class="nav-text">两端弹出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取列表的元素的个数"><span class="nav-number">3.4.4.</span> <span class="nav-text">获取列表的元素的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展命令"><span class="nav-number">3.4.5.</span> <span class="nav-text">扩展命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储Set"><span class="nav-number">3.5.</span> <span class="nav-text">存储Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-1"><span class="nav-number">3.5.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-2"><span class="nav-number">3.5.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取元素"><span class="nav-number">3.5.3.</span> <span class="nav-text">获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差集运算"><span class="nav-number">3.5.4.</span> <span class="nav-text">差集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交集运算"><span class="nav-number">3.5.5.</span> <span class="nav-text">交集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并集运算"><span class="nav-number">3.5.6.</span> <span class="nav-text">并集运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展命令-1"><span class="nav-number">3.5.7.</span> <span class="nav-text">扩展命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储sorted-set"><span class="nav-number">3.6.</span> <span class="nav-text">存储sorted set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">3.6.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Keys通用操作"><span class="nav-number">4.</span> <span class="nav-text">Keys通用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#keys-pattern"><span class="nav-number">4.1.</span> <span class="nav-text">keys pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#del-key1-key2-…"><span class="nav-number">4.2.</span> <span class="nav-text">del key1 key2 …</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exists-key"><span class="nav-number">4.3.</span> <span class="nav-text">exists key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename-key-newkey"><span class="nav-number">4.4.</span> <span class="nav-text">rename key newkey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expire-key-过期时间"><span class="nav-number">4.5.</span> <span class="nav-text">expire key 过期时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ttl-key"><span class="nav-number">4.6.</span> <span class="nav-text">ttl key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-key"><span class="nav-number">4.7.</span> <span class="nav-text">type key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-特性"><span class="nav-number">5.</span> <span class="nav-text">Redis 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多数据库"><span class="nav-number">5.1.</span> <span class="nav-text">多数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器命令"><span class="nav-number">5.2.</span> <span class="nav-text">服务器命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息订阅与发布"><span class="nav-number">5.3.</span> <span class="nav-text">消息订阅与发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reis事务"><span class="nav-number">5.4.</span> <span class="nav-text">reis事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis持久化"><span class="nav-number">5.5.</span> <span class="nav-text">redis持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#持久化方式"><span class="nav-number">5.5.1.</span> <span class="nav-text">持久化方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RDB方式-redis-databases"><span class="nav-number">5.5.1.1.</span> <span class="nav-text">RDB方式(redis databases)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RDB的缺点"><span class="nav-number">5.5.1.1.1.</span> <span class="nav-text">RDB的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOF方式（append-only-file）"><span class="nav-number">5.5.1.2.</span> <span class="nav-text">AOF方式（append only file）</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1015,7 +1017,7 @@ set username  张三
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">65.7k</span>
+    <span title="Site words total count">66.8k</span>
   
 </div>
 

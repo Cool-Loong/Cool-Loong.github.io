@@ -136,7 +136,7 @@
 
 
 
-  <meta name="keywords" content="java,javaee,jsp,servlet,EL,JSTL,">
+  <meta name="keywords" content="java,EL,JSTL,jsp,servlet,javaee,">
 
 
 
@@ -149,18 +149,18 @@
 
 
 
-<meta name="description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写 EL从域中取出数据EL最主要的作用式获得四大域中的数据  格式 ${EL表达式} EL获得pageContext域中的值：${pageContextScope.key};   EL获得request域中的值：${requestSco">
-<meta name="keywords" content="java,javaee,jsp,servlet,EL,JSTL">
+<meta name="description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写EL表达式是在jsp2.0之后加入的新的功能，使用表达式语言可以输出存储在标志位置上的对象，比如获取设置的域对象的信息，参数等等，可以大量的减少在jsp中存在Java代码，而且使用EL表达式也非常的简单${标志位置上的对象}。 EL表">
+<meta name="keywords" content="java,EL,JSTL,jsp,servlet,javaee">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EL和JSTL表达式">
 <meta property="og:url" content="https://Cool-Loong.github.io/2019/09/06/EL和JSTL表达式/index.html">
 <meta property="og:site_name" content="Dragon&#39;s Blog">
-<meta property="og:description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写 EL从域中取出数据EL最主要的作用式获得四大域中的数据  格式 ${EL表达式} EL获得pageContext域中的值：${pageContextScope.key};   EL获得request域中的值：${requestSco">
+<meta property="og:description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写EL表达式是在jsp2.0之后加入的新的功能，使用表达式语言可以输出存储在标志位置上的对象，比如获取设置的域对象的信息，参数等等，可以大量的减少在jsp中存在Java代码，而且使用EL表达式也非常的简单${标志位置上的对象}。 EL表">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T13:13:05.889Z">
+<meta property="og:updated_time" content="2019-09-10T04:17:29.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EL和JSTL表达式">
-<meta name="twitter:description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写 EL从域中取出数据EL最主要的作用式获得四大域中的数据  格式 ${EL表达式} EL获得pageContext域中的值：${pageContextScope.key};   EL获得request域中的值：${requestSco">
+<meta name="twitter:description" content="EL表达式EL表达式的介绍EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写EL表达式是在jsp2.0之后加入的新的功能，使用表达式语言可以输出存储在标志位置上的对象，比如获取设置的域对象的信息，参数等等，可以大量的减少在jsp中存在Java代码，而且使用EL表达式也非常的简单${标志位置上的对象}。 EL表">
 
 
 
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-06T21:13:05+08:00">
-                2019-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-10T12:17:29+08:00">
+                2019-09-10
               </time>
             
           </span>
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  901
+                  1.8k
                 </span>
               
 
@@ -516,8 +516,15 @@
       
 
       
-        <h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h1><h2 id="EL表达式的介绍"><a href="#EL表达式的介绍" class="headerlink" title="EL表达式的介绍"></a>EL表达式的介绍</h2><p>EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写</p>
-<h2 id="EL从域中取出数据"><a href="#EL从域中取出数据" class="headerlink" title="EL从域中取出数据"></a>EL从域中取出数据</h2><h3 id="EL最主要的作用式获得四大域中的数据-格式-EL表达式"><a href="#EL最主要的作用式获得四大域中的数据-格式-EL表达式" class="headerlink" title="EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}"></a><code>EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}</code></h3><ol>
+        <h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h1><h2 id="EL表达式的介绍"><a href="#EL表达式的介绍" class="headerlink" title="EL表达式的介绍"></a>EL表达式的介绍</h2><p>EL（Express Lanuage）表达式  可以嵌入在jsp页面内部  减少jsp脚本的编写,EL出现的目的是要代替jsp页面的脚本编写<br>EL表达式是在jsp2.0之后加入的新的功能，使用表达式语言可以输出存储在标志位置上的对象，比如获取设置的域对象的信息，参数等等，可以大量的减少在jsp中存在Java代码，而且使用EL表达式也非常的简单${标志位置上的对象}。</p>
+<h2 id="EL表达式的作用："><a href="#EL表达式的作用：" class="headerlink" title="EL表达式的作用："></a>EL表达式的作用：</h2><ul>
+<li>减少jsp中的以scriptlet形式存在的Java代码</li>
+<li>空值取代错误信息</li>
+<li>可以精确的访问对象的属性</li>
+<li>可以访问集合</li>
+<li>可以使用运算符<br>空值取代错误消息表示：如果没有设置任何域对象范围的age信息的时候，使用传统的getAttribute()方法，获取的信息是null，并且能够显示null，那么使用EL表达式之后，这个问题就不存在了，没有设置过的信息，获取的就是空值。<h2 id="EL从域中取出数据"><a href="#EL从域中取出数据" class="headerlink" title="EL从域中取出数据"></a>EL从域中取出数据</h2><h3 id="EL最主要的作用式获得四大域中的数据-格式-EL表达式"><a href="#EL最主要的作用式获得四大域中的数据-格式-EL表达式" class="headerlink" title="EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}"></a><code>EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}</code></h3></li>
+</ul>
+<ol>
 <li>EL获得pageContext域中的值：${pageContextScope.key};  </li>
 <li>EL获得request域中的值：${requestScope.key};  </li>
 <li>EL获得sessiont域中的值：${sessionScope.key};  </li>
@@ -541,12 +548,80 @@
 <blockquote>
 <p>${pageContext.request.contextPath}<br>相当于<br>&lt;%=pageContext.getRequest().getContextPath%&gt;<br>获得WEB应用的名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">例子</span><br><span class="line">&lt;!-- 使用el获得参数 --&gt;</span><br><span class="line">$&#123;param.username &#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">$&#123;header[&quot;Host&quot;] &#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">$&#123;cookie.name&#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">$&#123;cookie.name.value &#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;!-- 通过el表达式获得request对象 --&gt;</span><br><span class="line">$&#123;pageContext.request &#125;</span><br><span class="line">$&#123;pageContext&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="EL可以执行表达式运算"><a href="#EL可以执行表达式运算" class="headerlink" title="EL可以执行表达式运算"></a>EL可以执行表达式运算</h2><pre><code>&lt;!-- el可以执行表达式运算 --&gt;
+<h3 id="EL可以执行表达式运算"><a href="#EL可以执行表达式运算" class="headerlink" title="EL可以执行表达式运算"></a>EL可以执行表达式运算</h3><pre><code>&lt;!-- el可以执行表达式运算 --&gt;
 ${1+1 }
 ${1==1?true:false }
 &lt;!-- empty 判定某个对象是否是null  是null返回true --&gt;
 ${empty list}
-</code></pre><h1 id="JSTL技术"><a href="#JSTL技术" class="headerlink" title="JSTL技术"></a>JSTL技术</h1><p>JSTL(JSP standard Standard Tag Library)<br>jsp标准标签库<br>可以嵌入到jsp页面中使用标签的形式完成业务逻辑等功能<br>JSTL标准标签库有五个子库  主要使用核心库:  </p>
+</code></pre><h2 id="其他内置对象"><a href="#其他内置对象" class="headerlink" title="其他内置对象"></a>其他内置对象</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">内容</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">pageContext</td>
+<td style="text-align:center">表示的javax.servlet.jsp.PageContext对象</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">pageScope</td>
+<td style="text-align:center">Page范围</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">requestScope</td>
+<td style="text-align:center">Request范围</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">sessionScope</td>
+<td style="text-align:center">Session范围</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">applicationScope</td>
+<td style="text-align:center">Application范围</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">param</td>
+<td style="text-align:center">接收传递到本页面的参数</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">paramValues</td>
+<td style="text-align:center">接收传递到本页面的一组参数</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">header</td>
+<td style="text-align:center">获取一个头信息的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">headerValues</td>
+<td style="text-align:center">获取一组头信息的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">cookie</td>
+<td style="text-align:center">获取cookie</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">initParam</td>
+<td style="text-align:center">获取初始化参数</td>
+</tr>
+</tbody>
+</table>
+<p>使用EL表达式获取不同范围相同名称的域对象信息的时候，获取的是最小的范围。<br>通过表达式的内置对象就可以获取指定范围的域对象的信息</p>
+<h2 id="操作运算符"><a href="#操作运算符" class="headerlink" title="操作运算符"></a>操作运算符</h2><p>表达式语言中，为了方便的进行操作，提供了数学运算符、关系运算符、逻辑运算符，三元运算符等操作，在编写过程中，之前使用java 代码进行的运算都可以使用EL表达式完成，结合JSTL一起使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;arg1:$&#123; arg1&#125;&lt;/h3&gt;</span><br><span class="line">&lt;h3&gt;arg2:$&#123; arg2&#125;&lt;/h3&gt;</span><br><span class="line">&lt;!-- 数学运算 --&gt;</span><br><span class="line">&lt;h3&gt;加法运算：$&#123;arg1+arg2 &#125;&lt;/h3&gt;</span><br><span class="line">&lt;h3&gt;减法运算：$&#123;arg1-arg2 &#125;&lt;/h3&gt;</span><br><span class="line">&lt;h3&gt;乘法运算：$&#123;arg1*arg2 &#125;&lt;/h3&gt;</span><br><span class="line">&lt;h3&gt;除法运算：$&#123;arg1/arg2 &#125;&lt;/h3&gt;</span><br><span class="line">&lt;h3&gt;取模运算：$&#123;arg1%arg2 &#125;&lt;/h3&gt;</span><br><span class="line">&lt;!-- 关系运算 --&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 == 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 != 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 &gt; 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 &lt; 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 &gt;= 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;关系运算 :$&#123;arg1 &lt;= 10 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;!-- 逻辑运算符 &amp;&amp;(and)  ||(or)  !(not) --&gt;</span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;arg1 &gt; arg2 &amp;&amp; arg1 &lt;30 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;arg1 &gt; arg2 and arg1 &lt;30 &#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;arg1 &lt; arg2 || arg1 &gt; 30 &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;arg1 &gt; arg2 or arg1 &lt;30 &#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;!(arg1 &lt; arg2 or arg1 &gt;30) &#125;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;逻辑运算符：$&#123;not(arg1 &lt; arg2 or arg1 &gt;30) &#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;三元运算：$&#123;arg1&lt;arg2?100:1000 &#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;判断是否为空：$&#123;empty list &#125;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 在开发中，逻辑运算，关系运算，判断是否为空，都经常接口 jstl标签使用 --&gt;</span><br><span class="line">&lt;c:if test=&quot;$&#123;empty list &#125;&quot;&gt;</span><br><span class="line">	&lt;h1&gt;集合是空的&lt;/h1&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="JSTL技术"><a href="#JSTL技术" class="headerlink" title="JSTL技术"></a>JSTL技术</h1><p>JSTL(JSP standard Standard Tag Library)<br>jsp标准标签库<br>可以嵌入到jsp页面中使用标签的形式完成业务逻辑等功能<br>JSTL标准标签库有五个子库  主要使用核心库:  </p>
 <ol>
 <li>core:   c</li>
 <li>I18N:   fmt</li>
@@ -571,7 +646,8 @@ C:Controller --- 控制器 servlet:获取数据 对数据进行处理  传递数
 </code></pre><h2 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h2><pre><code>web层: servlet封装javaBean  jsp显示  SpringMVC  
 service层: 业务代码        Spring
 dao层：   数据库查询        Mybatis 
-</code></pre>
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>EL表达式能够进行的操作有很多，可以大量的减少jsp中Java的代码量，在开发中，经常使用</p>
+
       
     </div>
     
@@ -647,15 +723,15 @@ dao层：   数据库查询        Mybatis
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/javaee/" rel="tag"><i class="fa fa-tag"></i> javaee</a>
+            <a href="/tags/EL/" rel="tag"><i class="fa fa-tag"></i> EL</a>
+          
+            <a href="/tags/JSTL/" rel="tag"><i class="fa fa-tag"></i> JSTL</a>
           
             <a href="/tags/jsp/" rel="tag"><i class="fa fa-tag"></i> jsp</a>
           
             <a href="/tags/servlet/" rel="tag"><i class="fa fa-tag"></i> servlet</a>
           
-            <a href="/tags/EL/" rel="tag"><i class="fa fa-tag"></i> EL</a>
-          
-            <a href="/tags/JSTL/" rel="tag"><i class="fa fa-tag"></i> JSTL</a>
+            <a href="/tags/javaee/" rel="tag"><i class="fa fa-tag"></i> javaee</a>
           
         </div>
       
@@ -840,7 +916,7 @@ dao层：   数据库查询        Mybatis
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#EL表达式"><span class="nav-number">1.</span> <span class="nav-text">EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EL表达式的介绍"><span class="nav-number">1.1.</span> <span class="nav-text">EL表达式的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL从域中取出数据"><span class="nav-number">1.2.</span> <span class="nav-text">EL从域中取出数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EL最主要的作用式获得四大域中的数据-格式-EL表达式"><span class="nav-number">1.2.1.</span> <span class="nav-text">EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL的内置对象"><span class="nav-number">1.3.</span> <span class="nav-text">EL的内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四个内置对象"><span class="nav-number">1.3.1.</span> <span class="nav-text">四个内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.3.2.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL可以执行表达式运算"><span class="nav-number">1.4.</span> <span class="nav-text">EL可以执行表达式运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSTL技术"><span class="nav-number">2.</span> <span class="nav-text">JSTL技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入相对性的jar包"><span class="nav-number">2.1.</span> <span class="nav-text">导入相对性的jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL核心库的常用标签"><span class="nav-number">2.1.1.</span> <span class="nav-text">JSTL核心库的常用标签</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javaEE模式"><span class="nav-number">3.</span> <span class="nav-text">javaEE模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#model1模式："><span class="nav-number">3.1.</span> <span class="nav-text">model1模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model2模式"><span class="nav-number">3.2.</span> <span class="nav-text">model2模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">3.3.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层架构"><span class="nav-number">3.4.</span> <span class="nav-text">三层架构</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#EL表达式"><span class="nav-number">1.</span> <span class="nav-text">EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EL表达式的介绍"><span class="nav-number">1.1.</span> <span class="nav-text">EL表达式的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL表达式的作用："><span class="nav-number">1.2.</span> <span class="nav-text">EL表达式的作用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL从域中取出数据"><span class="nav-number">1.3.</span> <span class="nav-text">EL从域中取出数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EL最主要的作用式获得四大域中的数据-格式-EL表达式"><span class="nav-number">1.3.1.</span> <span class="nav-text">EL最主要的作用式获得四大域中的数据  格式 ${EL表达式}</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EL的内置对象"><span class="nav-number">1.4.</span> <span class="nav-text">EL的内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四个内置对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">四个内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.4.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL可以执行表达式运算"><span class="nav-number">1.4.3.</span> <span class="nav-text">EL可以执行表达式运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他内置对象"><span class="nav-number">1.5.</span> <span class="nav-text">其他内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作运算符"><span class="nav-number">1.6.</span> <span class="nav-text">操作运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSTL技术"><span class="nav-number">2.</span> <span class="nav-text">JSTL技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入相对性的jar包"><span class="nav-number">2.1.</span> <span class="nav-text">导入相对性的jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL核心库的常用标签"><span class="nav-number">2.1.1.</span> <span class="nav-text">JSTL核心库的常用标签</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javaEE模式"><span class="nav-number">3.</span> <span class="nav-text">javaEE模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#model1模式："><span class="nav-number">3.1.</span> <span class="nav-text">model1模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model2模式"><span class="nav-number">3.2.</span> <span class="nav-text">model2模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">3.3.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三层架构"><span class="nav-number">3.4.</span> <span class="nav-text">三层架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -883,7 +959,7 @@ dao层：   数据库查询        Mybatis
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">65.7k</span>
+    <span title="Site words total count">66.8k</span>
   
 </div>
 
